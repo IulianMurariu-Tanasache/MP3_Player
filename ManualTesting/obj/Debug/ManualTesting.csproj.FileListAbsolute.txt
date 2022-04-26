@@ -1,0 +1,11 @@
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\bin\Debug\ManualTesting.exe.config
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\bin\Debug\ManualTesting.exe
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\bin\Debug\ManualTesting.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\bin\Debug\PlaylistControls.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.csproj.AssemblyReference.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.csproj.SuggestedBindingRedirects.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.csproj.CoreCompileInputs.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.csproj.CopyComplete
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.exe
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\obj\Debug\ManualTesting.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\ManualTesting\bin\Debug\PlaylistControls.dll
