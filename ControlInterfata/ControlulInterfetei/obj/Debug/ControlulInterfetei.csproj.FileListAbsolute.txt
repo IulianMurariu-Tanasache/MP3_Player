@@ -1,0 +1,8 @@
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\bin\Debug\ControlulInterfetei.dll
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\bin\Debug\ControlulInterfetei.pdb
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.AssemblyReference.cache
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\Interop.WMPLib.dll
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.ResolveComReference.cache
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.CoreCompileInputs.cache
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.dll
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.pdb
