@@ -6,3 +6,4 @@ D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.
 D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.CoreCompileInputs.cache
 D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.dll
 D:\ProiectIP\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.pdb
+D:\ProiectIP\ControlInterfata\ControlulInterfetei\bin\Debug\ControlulInterfetei.xml

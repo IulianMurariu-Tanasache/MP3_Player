@@ -65,13 +65,13 @@ namespace Test
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(control.Time <= 100 && control.Time >= 0)
-            trackBar2.Value = control.Time;
+            if(control.time <= 100 && control.time >= 0)
+            trackBar2.Value = control.time;
         }
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            control.Time = trackBar2.Value;
+            control.time = trackBar2.Value;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

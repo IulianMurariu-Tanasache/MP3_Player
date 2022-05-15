@@ -12,3 +12,4 @@ D:\ProiectIP\ControlInterfata\Test\bin\Debug\ControlulInterfetei.pdb
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.csproj.CopyComplete
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.exe
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.pdb
+D:\ProiectIP\ControlInterfata\Test\bin\Debug\ControlulInterfetei.xml
