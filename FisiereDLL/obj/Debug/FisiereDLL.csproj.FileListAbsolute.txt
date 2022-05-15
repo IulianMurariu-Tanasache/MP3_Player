@@ -1,0 +1,6 @@
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\bin\Debug\FisiereDLL.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\bin\Debug\FisiereDLL.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.AssemblyReference.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.CoreCompileInputs.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.pdb

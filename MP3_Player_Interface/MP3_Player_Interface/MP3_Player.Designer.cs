@@ -44,6 +44,7 @@ namespace MP3_Player_Interface
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.playlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFromDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxPlaylist = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,7 @@ namespace MP3_Player_Interface
             this.progressBarTime.Name = "progressBarTime";
             this.progressBarTime.Size = new System.Drawing.Size(498, 14);
             this.progressBarTime.TabIndex = 2;
+            this.progressBarTime.Click += new System.EventHandler(this.progressBarTime_Click);
             // 
             // buttonVolumeDown
             // 
@@ -67,6 +69,7 @@ namespace MP3_Player_Interface
             this.buttonVolumeDown.Size = new System.Drawing.Size(50, 50);
             this.buttonVolumeDown.TabIndex = 11;
             this.buttonVolumeDown.UseVisualStyleBackColor = false;
+            this.buttonVolumeDown.Click += new System.EventHandler(this.buttonVolumeDown_Click);
             // 
             // buttonVolumeUp
             // 
@@ -79,6 +82,7 @@ namespace MP3_Player_Interface
             this.buttonVolumeUp.Size = new System.Drawing.Size(50, 50);
             this.buttonVolumeUp.TabIndex = 10;
             this.buttonVolumeUp.UseVisualStyleBackColor = false;
+            this.buttonVolumeUp.Click += new System.EventHandler(this.buttonVolumeUp_Click);
             // 
             // buttonVolumeMute
             // 
@@ -91,6 +95,7 @@ namespace MP3_Player_Interface
             this.buttonVolumeMute.Size = new System.Drawing.Size(50, 50);
             this.buttonVolumeMute.TabIndex = 9;
             this.buttonVolumeMute.UseVisualStyleBackColor = false;
+            this.buttonVolumeMute.Click += new System.EventHandler(this.buttonVolumeMute_Click);
             // 
             // buttonStop
             // 
@@ -115,6 +120,7 @@ namespace MP3_Player_Interface
             this.buttonShuffle.Size = new System.Drawing.Size(50, 50);
             this.buttonShuffle.TabIndex = 7;
             this.buttonShuffle.UseVisualStyleBackColor = false;
+            this.buttonShuffle.Click += new System.EventHandler(this.buttonShuffle_Click);
             // 
             // buttonPrevious
             // 
@@ -139,6 +145,7 @@ namespace MP3_Player_Interface
             this.buttonNext.Size = new System.Drawing.Size(50, 50);
             this.buttonNext.TabIndex = 5;
             this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonPause
             // 
@@ -151,6 +158,7 @@ namespace MP3_Player_Interface
             this.buttonPause.Size = new System.Drawing.Size(50, 50);
             this.buttonPause.TabIndex = 4;
             this.buttonPause.UseVisualStyleBackColor = false;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonPlay
             // 
@@ -163,6 +171,7 @@ namespace MP3_Player_Interface
             this.buttonPlay.Size = new System.Drawing.Size(50, 50);
             this.buttonPlay.TabIndex = 3;
             this.buttonPlay.UseVisualStyleBackColor = false;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // labelTimeStart
             // 
@@ -171,7 +180,7 @@ namespace MP3_Player_Interface
             this.labelTimeStart.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelTimeStart.Location = new System.Drawing.Point(12, 330);
             this.labelTimeStart.Name = "labelTimeStart";
-            this.labelTimeStart.Size = new System.Drawing.Size(60, 24);
+            this.labelTimeStart.Size = new System.Drawing.Size(71, 28);
             this.labelTimeStart.TabIndex = 12;
             this.labelTimeStart.Text = "00:00";
             // 
@@ -182,28 +191,31 @@ namespace MP3_Player_Interface
             this.labelTimeEnd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelTimeEnd.Location = new System.Drawing.Point(456, 330);
             this.labelTimeEnd.Name = "labelTimeEnd";
-            this.labelTimeEnd.Size = new System.Drawing.Size(60, 24);
+            this.labelTimeEnd.Size = new System.Drawing.Size(71, 28);
             this.labelTimeEnd.TabIndex = 13;
             this.labelTimeEnd.Text = "00:00";
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playlistToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.loadFromDirectoryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(522, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(522, 27);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // playlistToolStripMenuItem
             // 
             this.playlistToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.playlistToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
             this.playlistToolStripMenuItem.Text = "Playlist";
             // 
             // aboutToolStripMenuItem
@@ -211,8 +223,16 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // loadFromDirectoryToolStripMenuItem
+            // 
+            this.loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.loadFromDirectoryToolStripMenuItem.Name = "loadFromDirectoryToolStripMenuItem";
+            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(149, 23);
+            this.loadFromDirectoryToolStripMenuItem.Text = "Load From Directory";
+            this.loadFromDirectoryToolStripMenuItem.Click += new System.EventHandler(this.loadFromDirectoryToolStripMenuItem_Click);
             // 
             // listBoxPlaylist
             // 
@@ -271,6 +291,7 @@ namespace MP3_Player_Interface
         private System.Windows.Forms.ToolStripMenuItem playlistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ListBox listBoxPlaylist;
+        private System.Windows.Forms.ToolStripMenuItem loadFromDirectoryToolStripMenuItem;
     }
 }
 

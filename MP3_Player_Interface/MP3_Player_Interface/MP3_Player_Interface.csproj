@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlulInterfetei">
+      <HintPath>..\..\ControlInterfata\ControlulInterfetei\bin\Debug\ControlulInterfetei.dll</HintPath>
+    </Reference>
+    <Reference Include="FisiereDLL">
+      <HintPath>..\..\FisiereDLL\bin\Debug\FisiereDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="PlaylistControls">
+      <HintPath>..\..\PlaylistControls\bin\Debug\PlaylistControls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

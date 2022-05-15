@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlulInterfetei
+namespace ControlulInterfeteiNamespace
 {
     public class ControlulInterfetei
     {
@@ -42,6 +42,14 @@ namespace ControlulInterfetei
         public void Play()
         {
             _wplayer.controls.play();
+            _playing = true;
+        }
+
+        public void Play(string music)
+        {
+            int index = _list.IndexOf(music);
+            WMPLib.IWMPMedia media = _wplayer.currentPlaylist.get_Item(index);
+            _wplayer.controls.playItem(media);
             _playing = true;
         }
 
