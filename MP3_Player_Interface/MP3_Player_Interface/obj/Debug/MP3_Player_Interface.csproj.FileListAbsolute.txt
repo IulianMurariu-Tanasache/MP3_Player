@@ -1,0 +1,10 @@
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\MP3_Player_Interface.exe.config
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\MP3_Player_Interface.exe
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\MP3_Player_Interface.pdb
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.csproj.AssemblyReference.cache
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.MP3_Player.resources
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.Properties.Resources.resources
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.csproj.GenerateResource.cache
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.csproj.CoreCompileInputs.cache
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.exe
+D:\AN_3_SEM_2\IP\Proiect\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.pdb
