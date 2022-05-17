@@ -32,14 +32,12 @@ namespace MpPlayer
         {
             _ofd = new OpenFileDialog()
             {
-
                 FileName = "",
                 Filter = "Text files (*.mp3)|*.mp3",
                 Title = "Windows Explorer"
             };
             _ofd.Multiselect = true;
             _listOfMusic = new List<String>();
-            
         }
 
         /// <summary>
@@ -48,7 +46,6 @@ namespace MpPlayer
         /// In caz de eroare la deschiderea fisierului o sa arunce eroare, pe care o tratez
         /// </summary>
         /// <param name="listBoxMusic">ListBoxul in care va  fi afisata lista de melodii</param>
-        
         public void LoadMusic(ListBox listBoxMusic)//asta e ok
         {
             try
@@ -59,7 +56,6 @@ namespace MpPlayer
                     foreach (String file in listBoxMusic.Items)
                     {
                         _listOfMusic.Add(file);
-
                     }
                     foreach (String file in _ofd.FileNames)
                     {
@@ -75,16 +71,12 @@ namespace MpPlayer
                         }
                         if (!found)
                             _listOfMusic.Add(file);
-
-
                     }
                     listBoxMusic.Items.Clear();
                     // MessageBox.Show(listOfMusic.ToString());
                     foreach (String melody in _listOfMusic)
                     {
-
                         listBoxMusic.Items.Add(System.IO.Path.GetFileName(melody));
-
                     }
                 }
             }
@@ -152,7 +144,8 @@ namespace MpPlayer
             for (i = 0; i < s.Length; i++)
                 listBox.Items.Add(System.IO.Path.GetFileName(s[i]));
         }
-         /// <summary>
+
+        /// <summary>
         /// Aceasta functie permite permite ca sa realizez eveniment de tip Drag
         /// </summary>
         /// /// <param name="e">Lista in care se afla melodiile si in care adug prin DragAndDrop</param>
@@ -163,6 +156,5 @@ namespace MpPlayer
             else
                 e.Effect = DragDropEffects.None;
         }
-
     }
 }

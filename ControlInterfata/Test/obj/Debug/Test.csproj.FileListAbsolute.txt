@@ -12,3 +12,10 @@ D:\ProiectIP\ControlInterfata\Test\bin\Debug\ControlulInterfetei.pdb
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.csproj.CopyComplete
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.exe
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.pdb
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.Form1.resources
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.Properties.Resources.resources
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.csproj.GenerateResource.cache
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.exe
+D:\AN_3_SEM_2\IP\_\MP3_Player\ControlInterfata\Test\obj\Debug\Test.pdb
