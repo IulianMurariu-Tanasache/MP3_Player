@@ -199,11 +199,14 @@ namespace MP3_Player_Interface
             // 
             // listBoxPlaylist
             // 
+            this.listBoxPlaylist.AllowDrop = true;
             this.listBoxPlaylist.FormattingEnabled = true;
             this.listBoxPlaylist.Location = new System.Drawing.Point(13, 53);
             this.listBoxPlaylist.Name = "listBoxPlaylist";
             this.listBoxPlaylist.Size = new System.Drawing.Size(498, 251);
             this.listBoxPlaylist.TabIndex = 15;
+            this.listBoxPlaylist.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragAndDrop);
+            this.listBoxPlaylist.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBoxEnter);
             // 
             // trackBarTime
             // 

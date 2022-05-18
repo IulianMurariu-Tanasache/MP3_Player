@@ -126,7 +126,7 @@ namespace MpPlayer
             {
                 if (str.ToUpper().Contains(textBoxSearch.Text.ToUpper()))
                 {
-                    listBoxMusic.Items.Add(str);
+                    listBoxMusic.Items.Add(System.IO.Path.GetFileName(str));
                 }
             }
         }

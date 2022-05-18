@@ -166,7 +166,7 @@ namespace MP3_Player_Interface
         {
             //clear the menu and add custom items
             contextMenuStrip.Items.Clear();
-            ToolStripItem itemRemove = contextMenuStrip.Items.Add("Remove ");
+            ToolStripItem itemRemove = contextMenuStrip.Items.Add("Remove");
             itemRemove.Click += new EventHandler(itemRemove_Click);
         }
 
@@ -177,5 +177,17 @@ namespace MP3_Player_Interface
         {
             _loadFiles.DeleteMusic(listBoxPlaylist);
         }
+
+        private void DragAndDrop(object sender, DragEventArgs e)
+        {
+            _loadFiles.DragAndDrop(listBoxPlaylist, e);
+        }
+
+        private void ListBoxEnter(object sender, DragEventArgs e)
+        {
+            _loadFiles.ListBoxEnter(e);
+        }
+
+        
     }
 }
