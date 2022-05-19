@@ -84,7 +84,7 @@ namespace PlaylistControls
                 if(songPath.Contains(name))
                 {
                     _pathList.Remove(songPath);
-                    break;
+                    return;
                 }
             }
             //trebuie o eroare custom i guess
