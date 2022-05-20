@@ -21,6 +21,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using MpPlayer; // a lui Stefan
 using ControlulInterfeteiNamespace; // a lui Mihai
+using PlaylistControls; // a lui Iulian
 
 namespace MP3_Player_Interface
 {
@@ -31,6 +32,7 @@ namespace MP3_Player_Interface
     {
         private Load _loadFiles;
         private ControlulInterfetei _controlulInterfetei;
+        private PlaylistManager _playlistManager;
 
         private int _volume = 100;
         private bool _shuffle = false;
@@ -55,6 +57,11 @@ namespace MP3_Player_Interface
             contextMenuStrip = new ContextMenuStrip();
             contextMenuStrip.Opening += new CancelEventHandler(listboxContextMenu_Opening);
             listBoxPlaylist.ContextMenuStrip = contextMenuStrip;
+
+            contextMenuStripPlaylists = new ContextMenuStrip();
+            contextMenuStripPlaylists.Opening += new CancelEventHandler(contextMenuStripPlaylists_Opening);
+            listBoxPlaylists.ContextMenuStrip = contextMenuStripPlaylists;
+
             buttonPause.Enabled = false;
         }
 
@@ -73,6 +80,14 @@ namespace MP3_Player_Interface
         {
             _loadFiles.LoadMusic(listBoxPlaylist);
             _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
+        }
+		
+		/// <summary>
+        /// Aceasta functie este asociata butonului "Create" din meniul Playlist si ofera posibilitatea de a crea un nou playlist
+        /// </summary>
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void playMusic()
@@ -202,6 +217,43 @@ namespace MP3_Player_Interface
             contextMenuStrip.Items.Clear();
             ToolStripItem itemRemove = contextMenuStrip.Items.Add("Remove");
             itemRemove.Click += new EventHandler(itemRemove_Click);
+        }
+		
+		 /// <summary>
+        /// Aceasta functie ...
+        /// </summary>
+        private void contextMenuStripPlaylists_Opening(object sender, CancelEventArgs e)
+        {
+            contextMenuStripPlaylists.Items.Clear();
+            ToolStripItem itemCreate = contextMenuStripPlaylists.Items.Add("Create");
+            itemCreate.Click += new EventHandler(itemCreatePlaylist_Click);
+            ToolStripItem itemDelete = contextMenuStripPlaylists.Items.Add("Delete");
+            itemDelete.Click += new EventHandler(itemDeletePlaylist_Click);
+            ToolStripItem itemUpdate = contextMenuStripPlaylists.Items.Add("Update");
+            itemUpdate.Click += new EventHandler(itemUpdatePlaylist_Click);
+        }
+
+
+        /// <summary>
+        /// Aceasta functie ...
+        /// </summary>
+        private void itemCreatePlaylist_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// Aceasta functie ...
+        /// </summary>
+        private void itemDeletePlaylist_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// Aceasta functie ...
+        /// </summary>
+        private void itemUpdatePlaylist_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

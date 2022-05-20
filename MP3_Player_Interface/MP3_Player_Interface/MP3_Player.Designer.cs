@@ -46,13 +46,14 @@ namespace MP3_Player_Interface
             this.listBoxPlaylist = new System.Windows.Forms.ListBox();
             this.trackBarTime = new System.Windows.Forms.TrackBar();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.playlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxPlaylists = new System.Windows.Forms.ListBox();
+            this.contextMenuStripPlaylists = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTime)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -201,19 +202,18 @@ namespace MP3_Player_Interface
             // 
             this.listBoxPlaylist.AllowDrop = true;
             this.listBoxPlaylist.FormattingEnabled = true;
-            this.listBoxPlaylist.Location = new System.Drawing.Point(12, 46);
+            this.listBoxPlaylist.Location = new System.Drawing.Point(178, 53);
             this.listBoxPlaylist.Name = "listBoxPlaylist";
-            this.listBoxPlaylist.Size = new System.Drawing.Size(498, 251);
+            this.listBoxPlaylist.Size = new System.Drawing.Size(336, 264);
             this.listBoxPlaylist.TabIndex = 15;
             this.listBoxPlaylist.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragAndDrop);
             this.listBoxPlaylist.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBoxEnter);
             // 
             // trackBarTime
             // 
-            this.trackBarTime.LargeChange = 1;
+            this.trackBarTime.LargeChange = 10;
             this.trackBarTime.Location = new System.Drawing.Point(11, 329);
             this.trackBarTime.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.trackBarTime.Maximum = 1000;
             this.trackBarTime.Name = "trackBarTime";
             this.trackBarTime.Size = new System.Drawing.Size(498, 50);
             this.trackBarTime.TabIndex = 16;
@@ -226,14 +226,6 @@ namespace MP3_Player_Interface
             this.textBoxSearch.Size = new System.Drawing.Size(424, 20);
             this.textBoxSearch.TabIndex = 18;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            // 
-            // playlistToolStripMenuItem
-            // 
-            this.playlistToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.playlistToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
-            this.playlistToolStripMenuItem.Text = "Playlist";
             // 
             // aboutToolStripMenuItem
             // 
@@ -257,9 +249,8 @@ namespace MP3_Player_Interface
             this.menuStrip.BackColor = System.Drawing.SystemColors.HotTrack;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.playlistToolStripMenuItem,
-            this.aboutToolStripMenuItem,
-            this.loadFromDirectoryToolStripMenuItem});
+            this.loadFromDirectoryToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(522, 27);
@@ -289,12 +280,28 @@ namespace MP3_Player_Interface
             this.label1.TabIndex = 19;
             this.label1.Text = "Search a song:";
             // 
+            // listBoxPlaylists
+            // 
+            this.listBoxPlaylists.FormattingEnabled = true;
+            this.listBoxPlaylists.Location = new System.Drawing.Point(15, 53);
+            this.listBoxPlaylists.Name = "listBoxPlaylists";
+            this.listBoxPlaylists.Size = new System.Drawing.Size(157, 264);
+            this.listBoxPlaylists.TabIndex = 20;
+            // 
+            // contextMenuStripPlaylists
+            // 
+            this.contextMenuStripPlaylists.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStripPlaylists.Name = "contextMenuStripPlaylists";
+            this.contextMenuStripPlaylists.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStripPlaylists.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripPlaylists_Opening);
+            // 
             // MP3_Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(522, 468);
+            this.Controls.Add(this.listBoxPlaylists);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.trackBarTime);
@@ -342,13 +349,13 @@ namespace MP3_Player_Interface
         private System.Windows.Forms.ListBox listBoxPlaylist;
         private System.Windows.Forms.TrackBar trackBarTime;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.ToolStripMenuItem playlistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFromDirectoryToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteSongToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxPlaylists;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripPlaylists;
     }
 }
-
