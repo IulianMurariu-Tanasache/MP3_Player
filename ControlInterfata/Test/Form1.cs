@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,20 +13,21 @@ namespace Test
 {
     public partial class Form1 : Form
     {
-        private ControlulInterfetei.ControlulInterfetei control;
+        private ControlulInterfeteiNameSpace.ControlulInterfetei control;
         List<string> l = new List<string>();
         public Form1()
         {
             InitializeComponent();
-            control =  ControlulInterfetei.ControlulInterfetei.Instance();
+            control = ControlulInterfeteiNameSpace.ControlulInterfetei.Instance();
             button1.Text = "Play";
             button2.Text = "Pause";
             button3.Text = "Stop";
             button5.Text = "Next";
             button4.Text = "Previous";
-            l.Add("C:/Users/zahar/Downloads/Metallica_ Nothing Else Matters.mp3");
-            l.Add("C:/Users/zahar/Downloads/Metallica - The Unforgiven.mp3");
-            l.Add("C:/Users/zahar/Downloads/Metallica_ Enter Sandman.mp3");
+            button6.Text = "Clear";
+            l.Add(Directory.GetCurrentDirectory()+"/Metallica_ Nothing Else Matters.mp3");
+            l.Add("D:/ProiectIP/ControlInterfata/Test/Metallica - The Unforgiven.mp3");
+            l.Add("D:/ProiectIP/ControlInterfata/Test/Metallica_ Enter Sandman.mp3");
             control.AddSongs(l);
             control.Stop();
             timer1.Start();
@@ -65,13 +67,13 @@ namespace Test
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(control.time <= 100 && control.time >= 0)
-            trackBar2.Value = control.time;
+            if(control.Time <= 100 && control.Time >= 0)
+            trackBar2.Value = control.Time;
         }
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            control.time = trackBar2.Value;
+            control.Time = trackBar2.Value;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -80,6 +82,11 @@ namespace Test
                 control.Shuffle(true);
             else
                 control.Shuffle(false);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            control.RemoveSongs(l);
         }
     }
 }

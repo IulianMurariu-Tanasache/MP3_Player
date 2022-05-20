@@ -4,96 +4,107 @@
         <name>ControlulInterfetei</name>
     </assembly>
     <members>
-        <member name="T:ControlulInterfetei.ControlulInterfetei">
+        <member name="T:ControlulInterfeteiNameSpace.ControlulInterfetei">
             <summary>
-            Clasa singleton care se ocupa de controlul interfatei.
+            Clasa singleton care se ocupa de controlul interfetei.
             </summary>
         </member>
-        <member name="F:ControlulInterfetei.ControlulInterfetei._instance">
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._instance">
             <summary>
             Variabila pentru instanta clasei.
             </summary>
         </member>
-        <member name="F:ControlulInterfetei.ControlulInterfetei._wplayer">
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._wplayer">
             <summary>
             Instanta a Windows Media Player.
             </summary>
         </member>
-        <member name="F:ControlulInterfetei.ControlulInterfetei._paused">
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._paused">
             <summary>
             Variabila care este adevarata cand am apasat pauza.
             </summary>
         </member>
-        <member name="F:ControlulInterfetei.ControlulInterfetei._playing">
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._playing">
             <summary>
             Variabila care este adevarata cand player-ul functioneaza.
             </summary>
         </member>
-        <member name="F:ControlulInterfetei.ControlulInterfetei._list">
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._list">
             <summary>
             Lista de piese din playlist-ul curent.
             </summary>
         </member>
-        <member name="P:ControlulInterfetei.ControlulInterfetei.time">
+        <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.Time">
             <summary>
-            Proprietate a carei valoare schimba momentul in care esti in melodie.
+            Playlist-ul curent;
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.#ctor">
+        <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.FullDuration">
+            <summary>
+            Proprietate care returneaza lungimea melodiei.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.#ctor">
             <summary>
             Constructor privat al clasei.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Instance">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Instance">
             <summary>
             Functie care are rolul de constructor public.
             </summary>
             <returns>Instanta clasei</returns>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.AddSongs(System.Collections.Generic.List{System.String})">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.AddSongs(System.Collections.Generic.List{System.String})">
             <summary>
-            Functie prin care adaugam cantecele din playlist-ul curent.
+            Functie prin care adaugam cantecele intr-un playlist nou.
             </summary>
             <param name="l"></param>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Play">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.RemoveSongs(System.Collections.Generic.List{System.String})">
+            <summary>
+            Functie prin care eliminam cantece dintr-un playlist.
+            </summary>
+            <param name="l"></param>
+        </member>
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Play">
             <summary>
             Functie care porneste piesa curenta.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Play(System.String)">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Play(System.String)">
             <summary>
             Functie care porneste piesa data prin parametru.
             </summary>
             <param name="music"></param>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Pause">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Pause">
             <summary>
             Functie care pune pauza la muzica.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Stop">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Stop">
             <summary>
             Functie care opreste melodia curenta.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Next">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Next">
             <summary>
             Functie care porneste melodia urmatoare din playlist.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Previous">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Previous">
             <summary>
             Functie care porneste melodia precedenta din playlist.
             </summary>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Volume(System.Int32)">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Volume(System.Int32)">
             <summary>
             Functie care seteaza volumul.
             </summary>
             <param name="v"></param>
         </member>
-        <member name="M:ControlulInterfetei.ControlulInterfetei.Shuffle(System.Boolean)">
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Shuffle(System.Boolean)">
             <summary>
             Functie care seteaza modul shuffle.
             </summary>

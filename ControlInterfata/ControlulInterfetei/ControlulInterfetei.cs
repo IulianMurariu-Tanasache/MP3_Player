@@ -1,9 +1,26 @@
-﻿using System;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        Header.cs                                                *
+ *  Copyright:   (c) 2022, Zaharia Teodor Mihai                           *
+ *  E-mail:      teodor-mihai.zaharia@student.tuiasi.ro                   *
+ *  Description: Library for the controls of a music player.              *
+ *                                                                        *
+ *  This program is free software; you can redistribute it and/or modify  *
+ *  it under the terms of the GNU General Public License as published by  *
+ *  the Free Software Foundation. This program is distributed in the      *
+ *  hope that it will be useful, but WITHOUT ANY WARRANTY; without even   *
+ *  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR   *
+ *  PURPOSE. See the GNU General Public License for more details.         *
+ *                                                                        *
+ **************************************************************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace ControlulInterfetei
+namespace ControlulInterfeteiNameSpace
 {
     /// <summary>
     /// Clasa singleton care se ocupa de controlul interfetei.
@@ -31,15 +48,25 @@ namespace ControlulInterfetei
         /// </summary>
         private List<string> _list;
         /// <summary>
-        /// Proprietate a carei valoare schimba momentul in care esti in melodie.
+        /// Playlist-ul curent;
         /// </summary>
-        public int time
+        public int Time
         {
             get
             {
-                return (int)((_wplayer.controls.currentPosition * 1000) / _wplayer.currentMedia.duration);
+                return (int)(_wplayer.controls.currentPosition);
             }
-            set { _wplayer.controls.currentPosition = (double)(value * _wplayer.currentMedia.duration) / 1000; }
+            set { _wplayer.controls.currentPosition = (double)(value); }
+        }
+        /// <summary>
+        /// Proprietate care returneaza lungimea melodiei.
+        /// </summary>
+        public int FullDuration
+        {
+            get
+            {
+                return (int)(_wplayer.currentMedia.duration);
+            }
         }
         /// <summary>
         /// Constructor privat al clasei.
@@ -61,20 +88,33 @@ namespace ControlulInterfetei
             return _instance;
         }
         /// <summary>
-        /// Functie prin care adaugam cantecele din playlist-ul curent.
+        /// Functie prin care adaugam cantecele intr-un playlist nou.
         /// </summary>
         /// <param name="l"></param>
         public void AddSongs(List<String> l)
         {
             _list = l;
-            WMPLib.IWMPPlaylist playlist = _wplayer.playlistCollection.newPlaylist("Songs");
             WMPLib.IWMPMedia media;
             foreach (string file in l)
             {
                 media = _wplayer.newMedia(file);
-                playlist.appendItem(media);
+                _wplayer.currentPlaylist.appendItem(media);
             }
-            _wplayer.currentPlaylist = playlist;
+            Stop();
+        }
+        /// <summary>
+        /// Functie prin care eliminam cantece dintr-un playlist.
+        /// </summary>
+        /// <param name="l"></param>
+        public void RemoveSongs(List<String> l)
+        {
+            WMPLib.IWMPMedia media;
+            foreach (string file in l.ToList())
+            {
+                media = _wplayer.currentPlaylist.get_Item(_list.IndexOf(file));
+                _wplayer.currentPlaylist.removeItem(media);
+                _list.Remove(file);
+            }
         }
         /// <summary>
         /// Functie care porneste piesa curenta.
