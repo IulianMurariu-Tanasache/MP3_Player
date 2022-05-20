@@ -34,6 +34,7 @@ namespace MP3_Player_Interface
 
         private int _volume = 100;
         private bool _shuffle = false;
+        private string _currentMusic = "";
 
         /// <summary>
         /// Constructor ce initializeaza fereastra grafica a MP3 Player-ului.
@@ -74,6 +75,13 @@ namespace MP3_Player_Interface
             _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
         }
 
+        private void playMusic()
+        {
+            buttonPause.Enabled = true;
+            trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+            trackBarTime.Value = 0;
+        }
+
         /// <summary>
         /// Aceasta functie 
         /// </summary>
@@ -82,14 +90,19 @@ namespace MP3_Player_Interface
             //daca melodia e pe pauza sa dea resume
             try
             {
-                string currentMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
-                _controlulInterfetei.Play(currentMusic);
-                buttonPause.Enabled = true;
-                trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+                string selectedMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
+                if (_currentMusic != selectedMusic)
+                {
+                    _currentMusic = selectedMusic;
+                    _controlulInterfetei.Play(_currentMusic);
+                    playMusic();
+                } else
+                {
+                    _controlulInterfetei.Play();
+                }
             }
             catch(Exception excp)
             {
-
                 MessageBox.Show(excp.Message);
             }
         }
@@ -102,13 +115,13 @@ namespace MP3_Player_Interface
             _controlulInterfetei.Pause();
         }
 
-
         /// <summary>
         /// Aceasta functie permite accesarea melodiei urmatoare din playlist.
         /// </summary>
         private void buttonNext_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Next();
+            playMusic();
         }
 
         /// <summary>
@@ -117,6 +130,7 @@ namespace MP3_Player_Interface
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Previous();
+            playMusic();
         }
 
         /// <summary>
@@ -195,6 +209,7 @@ namespace MP3_Player_Interface
         /// </summary>
         void itemRemove_Click(object sender, EventArgs e)
         {
+            _controlulInterfetei.Stop();
             _loadFiles.DeleteMusic(listBoxPlaylist);
         }
 

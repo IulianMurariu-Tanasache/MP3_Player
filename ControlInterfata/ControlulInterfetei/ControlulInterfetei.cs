@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 
 namespace ControlulInterfeteiNamespace
-=======
-namespace ControlulInterfetei
->>>>>>> Mihai
 {
     /// <summary>
     /// Clasa singleton care se ocupa de controlul interfetei.
@@ -38,13 +34,13 @@ namespace ControlulInterfetei
         /// <summary>
         /// Proprietate a carei valoare schimba momentul in care esti in melodie.
         /// </summary>
-        public int time
+        public int Time
         {
             get
             {
-                return (int)((_wplayer.controls.currentPosition * 1000) / _wplayer.currentMedia.duration);
+                return (int)((_wplayer.controls.currentPosition));
             }
-            set { _wplayer.controls.currentPosition = (double)(value * _wplayer.currentMedia.duration) / 1000; }
+            set { _wplayer.controls.currentPosition = (double)(value); }
         }
         /// <summary>
         /// Constructor privat al clasei.
@@ -80,6 +76,7 @@ namespace ControlulInterfetei
                 playlist.appendItem(media);
             }
             _wplayer.currentPlaylist = playlist;
+            Stop();
         }
         /// <summary>
         /// Functie care porneste piesa curenta.
@@ -102,21 +99,10 @@ namespace ControlulInterfetei
             _playing = true;
             _paused = false;
         }
-<<<<<<< HEAD
 
-        public void Play(string music)
-        {
-            int index = _list.IndexOf(music);
-            WMPLib.IWMPMedia media = _wplayer.currentPlaylist.get_Item(index);
-            _wplayer.controls.playItem(media);
-            _playing = true;
-        }
-
-=======
         /// <summary>
         /// Functie care pune pauza la muzica.
         /// </summary>
->>>>>>> Mihai
         public void Pause()
         {
             if (_playing == true)
@@ -166,26 +152,18 @@ namespace ControlulInterfetei
         {
             _wplayer.settings.volume = v;
         }
-<<<<<<< HEAD
-        public int Time 
-        {
-            get{
-                return (int)((_wplayer.controls.currentPosition));
-            }
-            set { _wplayer.controls.currentPosition = (double)(value); }
-        }
+
 
         public int FullDuration 
         {
             get { return (int)_wplayer.currentMedia.duration; }
         }
 
-=======
         /// <summary>
         /// Functie care seteaza modul shuffle.
         /// </summary>
         /// <param name="state"></param>
->>>>>>> Mihai
+		
         public void Shuffle(bool state)
         {
             _wplayer.settings.setMode("shuffle", state);

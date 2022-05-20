@@ -201,7 +201,7 @@ namespace MP3_Player_Interface
             // 
             this.listBoxPlaylist.AllowDrop = true;
             this.listBoxPlaylist.FormattingEnabled = true;
-            this.listBoxPlaylist.Location = new System.Drawing.Point(13, 53);
+            this.listBoxPlaylist.Location = new System.Drawing.Point(12, 46);
             this.listBoxPlaylist.Name = "listBoxPlaylist";
             this.listBoxPlaylist.Size = new System.Drawing.Size(498, 251);
             this.listBoxPlaylist.TabIndex = 15;
