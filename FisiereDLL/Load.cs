@@ -140,9 +140,14 @@ namespace MpPlayer
         public void DragAndDrop(ListBox listBox, DragEventArgs e)
         {
             string[] s = (string[]) e.Data.GetData(System.IO.Path.GetFileName(DataFormats.FileDrop), false);
+            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             int i;
             for (i = 0; i < s.Length; i++)
                 listBox.Items.Add(System.IO.Path.GetFileName(s[i]));
+            foreach (String file in filePaths)
+            {
+                _listOfMusic.Add(file);
+            }
         }
 
         /// <summary>

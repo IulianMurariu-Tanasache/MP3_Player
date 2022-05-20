@@ -182,7 +182,7 @@ namespace MP3_Player_Interface
             this.labelTimeStart.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelTimeStart.Location = new System.Drawing.Point(10, 374);
             this.labelTimeStart.Name = "labelTimeStart";
-            this.labelTimeStart.Size = new System.Drawing.Size(60, 24);
+            this.labelTimeStart.Size = new System.Drawing.Size(71, 28);
             this.labelTimeStart.TabIndex = 12;
             this.labelTimeStart.Text = "00:00";
             // 
@@ -193,7 +193,7 @@ namespace MP3_Player_Interface
             this.labelTimeEnd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelTimeEnd.Location = new System.Drawing.Point(454, 374);
             this.labelTimeEnd.Name = "labelTimeEnd";
-            this.labelTimeEnd.Size = new System.Drawing.Size(60, 24);
+            this.labelTimeEnd.Size = new System.Drawing.Size(71, 28);
             this.labelTimeEnd.TabIndex = 13;
             this.labelTimeEnd.Text = "00:00";
             // 
@@ -210,11 +210,12 @@ namespace MP3_Player_Interface
             // 
             // trackBarTime
             // 
-            this.trackBarTime.LargeChange = 10;
+            this.trackBarTime.LargeChange = 1;
             this.trackBarTime.Location = new System.Drawing.Point(11, 329);
             this.trackBarTime.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.trackBarTime.Maximum = 1000;
             this.trackBarTime.Name = "trackBarTime";
-            this.trackBarTime.Size = new System.Drawing.Size(498, 45);
+            this.trackBarTime.Size = new System.Drawing.Size(498, 50);
             this.trackBarTime.TabIndex = 16;
             this.trackBarTime.Scroll += new System.EventHandler(this.trackBarTime_Scroll);
             // 
@@ -231,7 +232,7 @@ namespace MP3_Player_Interface
             this.playlistToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.playlistToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
             this.playlistToolStripMenuItem.Text = "Playlist";
             // 
             // aboutToolStripMenuItem
@@ -239,7 +240,7 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -247,7 +248,7 @@ namespace MP3_Player_Interface
             // 
             this.loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
             this.loadFromDirectoryToolStripMenuItem.Name = "loadFromDirectoryToolStripMenuItem";
-            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(149, 23);
             this.loadFromDirectoryToolStripMenuItem.Text = "Load From Directory";
             this.loadFromDirectoryToolStripMenuItem.Click += new System.EventHandler(this.loadFromDirectoryToolStripMenuItem_Click);
             // 
@@ -261,21 +262,22 @@ namespace MP3_Player_Interface
             this.loadFromDirectoryToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(522, 24);
+            this.menuStrip.Size = new System.Drawing.Size(522, 27);
             this.menuStrip.TabIndex = 14;
             this.menuStrip.Text = "menuStrip1";
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteSongToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(138, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 28);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.deleteSongToolStripMenuItem.Text = "Delete Song";
             // 
             // label1

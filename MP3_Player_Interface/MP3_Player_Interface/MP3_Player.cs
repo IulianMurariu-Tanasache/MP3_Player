@@ -71,6 +71,7 @@ namespace MP3_Player_Interface
         private void loadFromDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _loadFiles.LoadMusic(listBoxPlaylist);
+            _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
         }
 
         /// <summary>
@@ -79,16 +80,17 @@ namespace MP3_Player_Interface
         private void buttonPlay_Click(object sender, EventArgs e)
         {
             //daca melodia e pe pauza sa dea resume
-            _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
             try
             {
                 string currentMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
                 _controlulInterfetei.Play(currentMusic);
                 buttonPause.Enabled = true;
+                trackBarTime.Maximum = _controlulInterfetei.FullDuration;
             }
-            catch
+            catch(Exception excp)
             {
-                MessageBox.Show("Selectați melodiile!");
+
+                MessageBox.Show(excp.Message);
             }
         }
 
@@ -158,7 +160,7 @@ namespace MP3_Player_Interface
         /// </summary>
         private void buttonStop_Click(object sender, EventArgs e)
         {
-
+            _controlulInterfetei.Stop();
         }
 
         /// <summary>
@@ -199,6 +201,7 @@ namespace MP3_Player_Interface
         private void DragAndDrop(object sender, DragEventArgs e)
         {
             _loadFiles.DragAndDrop(listBoxPlaylist, e);
+            _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
         }
 
         private void ListBoxEnter(object sender, DragEventArgs e)

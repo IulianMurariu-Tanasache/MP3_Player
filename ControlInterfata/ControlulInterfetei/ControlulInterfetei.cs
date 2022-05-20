@@ -96,9 +96,14 @@ namespace ControlulInterfeteiNamespace
         public int Time 
         {
             get{
-                return (int)((_wplayer.controls.currentPosition * 1000) / _wplayer.currentMedia.duration);
+                return (int)((_wplayer.controls.currentPosition));
             }
-            set { _wplayer.controls.currentPosition = (double)(value* _wplayer.currentMedia.duration)/1000; }
+            set { _wplayer.controls.currentPosition = (double)(value); }
+        }
+
+        public int FullDuration 
+        {
+            get { return (int)_wplayer.currentMedia.duration; }
         }
 
         public void Shuffle(bool state)
