@@ -34,7 +34,7 @@ namespace ControlulInterfeteiNamespace
         /// <summary>
         /// Proprietate a carei valoare schimba momentul in care esti in melodie.
         /// </summary>
-        public int Time
+         public int Time
         {
             get
             {
@@ -99,7 +99,6 @@ namespace ControlulInterfeteiNamespace
             _playing = true;
             _paused = false;
         }
-
         /// <summary>
         /// Functie care pune pauza la muzica.
         /// </summary>
@@ -152,21 +151,18 @@ namespace ControlulInterfeteiNamespace
         {
             _wplayer.settings.volume = v;
         }
-
-
-        public int FullDuration 
-        {
-            get { return (int)_wplayer.currentMedia.duration; }
-        }
-
         /// <summary>
         /// Functie care seteaza modul shuffle.
         /// </summary>
         /// <param name="state"></param>
-		
         public void Shuffle(bool state)
         {
             _wplayer.settings.setMode("shuffle", state);
+        }
+
+        public int FullDuration
+        {
+            get { return (int)_wplayer.currentMedia.duration; }
         }
     }
 }
