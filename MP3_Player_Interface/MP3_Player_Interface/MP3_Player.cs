@@ -1,17 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        MP3_Player.cs                                            *
+ *  Copyright:   (c) 2022, Pandeleanu Cosmin-Constantin                   *
+ *  E-mail:      cosmin-constantin.pandeleanu@student.tuiasi.ro           *
+ *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
+ *  Description: Generates file information headers.                      *
+ *                                                                        *
+ *  This program is free software; you can redistribute it and/or modify  *
+ *  it under the terms of the GNU General Public License as published by  *
+ *  the Free Software Foundation. This program is distributed in the      *
+ *  hope that it will be useful, but WITHOUT ANY WARRANTY; without even   *
+ *  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR   *
+ *  PURPOSE. See the GNU General Public License for more details.         *
+ *                                                                        *
+ **************************************************************************/
+
+
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MpPlayer; // a lui Stefan
 using ControlulInterfeteiNamespace; // a lui Mihai
 
 namespace MP3_Player_Interface
 {
+    /// <summary>
+    /// Clasa <c>MP3_Player</c> reprezinta interfata grafica a aplicatiei.
+    /// </summary>
     public partial class MP3_Player : Form
     {
         private Load _loadFiles;
@@ -19,10 +34,9 @@ namespace MP3_Player_Interface
 
         private int _volume = 100;
         private bool _shuffle = false;
-        //private bool _isPlaying = false;
 
         /// <summary>
-        /// Constructor ce initializeaza fereastra grafica a MP# Player-ului.
+        /// Constructor ce initializeaza fereastra grafica a MP3 Player-ului.
         /// </summary>
         public MP3_Player()
         {
@@ -31,52 +45,56 @@ namespace MP3_Player_Interface
             _controlulInterfetei = ControlulInterfetei.Instance();
         }
 
+        /// <summary>
+        /// Aceasta functie se declanșează când form-ul se încarcă.
+        /// </summary>
         private void MP3_Player_Load(object sender, EventArgs e)
         {
             //assign a contextmenustrip
             contextMenuStrip = new ContextMenuStrip();
             contextMenuStrip.Opening += new CancelEventHandler(listboxContextMenu_Opening);
             listBoxPlaylist.ContextMenuStrip = contextMenuStrip;
+            buttonPause.Enabled = false;
         }
 
+        /// <summary>
+        /// Aceasta functie este asociata butonului About in bara de meniu
+        /// </summary>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Mp3 Player");
         }
 
+        /// <summary>
+        /// Aceasta functie este asociata butonului Load From Directory in bara de meniu
+        /// </summary>
         private void loadFromDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _loadFiles.LoadMusic(listBoxPlaylist);
         }
 
+        /// <summary>
+        /// Aceasta functie 
+        /// </summary>
         private void buttonPlay_Click(object sender, EventArgs e)
         {
             //daca melodia e pe pauza sa dea resume
             _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
-            //if (_isPlaying)
-            //{
-            //    _controlulInterfetei.Pause();
-            //    buttonPlay.BackgroundImage = Properties.Resources.play_50;
-            //    _isPlaying = false;
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        string currentMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
-            //        _controlulInterfetei.Play(currentMusic);
-            //        buttonPlay.BackgroundImage = Properties.Resources.pause_50;
-            //        _isPlaying = true;
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("Selectați melodiile!");
-            //    }
-            //}
-            string currentMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
-            _controlulInterfetei.Play(currentMusic);
+            try
+            {
+                string currentMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
+                _controlulInterfetei.Play(currentMusic);
+                buttonPause.Enabled = true;
+            }
+            catch
+            {
+                MessageBox.Show("Selectați melodiile!");
+            }
         }
 
+        /// <summary>
+        /// Aceasta functie 
+        /// </summary>
         private void buttonPause_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Pause();
@@ -187,7 +205,5 @@ namespace MP3_Player_Interface
         {
             _loadFiles.ListBoxEnter(e);
         }
-
-        
     }
 }
