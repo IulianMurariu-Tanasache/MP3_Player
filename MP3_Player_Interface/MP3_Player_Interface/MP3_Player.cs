@@ -23,6 +23,7 @@ using Microsoft.VisualBasic;
 using MpPlayer; // a lui Stefan
 using ControlulInterfeteiNamespace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
+using System.Collections.Generic;
 
 namespace MP3_Player_Interface
 {
@@ -78,11 +79,21 @@ namespace MP3_Player_Interface
         /// <summary>
         /// Aceasta functie este asociata butonului Load From Directory in bara de meniu
         /// </summary>
+        /// _playlistManger,currentplaylist.pathlist
         private void loadFromDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                _loadFiles.LoadMusic(listBoxPlaylist);
+                List<string> list = new List<string>();
+                list = _loadFiles.LoadMusic();
+                listBoxPlaylist.Items.Clear();
+                // MessageBox.Show(listOfMusic.ToString());
+                foreach (String melody in list)
+                {
+
+                    listBoxPlaylist.Items.Add(melody);
+
+                }
                 _playlistManager.CurrentPlaylist.AddSongs(_loadFiles.ListOfMusic.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
             }
@@ -109,7 +120,7 @@ namespace MP3_Player_Interface
         {
             try
             {
-                string selectedMusic = _playlistManager.CurrentPlaylist.getFullPath(listBoxPlaylist.SelectedItem.ToString());
+                string selectedMusic = _playlistManager.CurrentPlaylist.GetFullPath(listBoxPlaylist.SelectedItem.ToString());
                 if (_currentMusic != selectedMusic)
                 {
                     _currentMusic = selectedMusic;
@@ -231,7 +242,8 @@ namespace MP3_Player_Interface
         /// </summary>
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            _loadFiles.SearchMusic(listBoxPlaylist, textBoxSearch, _playlistManager.CurrentPlaylist.PathList);
+            _loadFiles.SearchMusic(listBoxPlaylist,textBoxSearch, _playlistManager.CurrentPlaylist.PathList);
+        
         }
 
         /// <summary>

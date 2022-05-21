@@ -10,3 +10,9 @@ E:\Laboratoare\IP\Prj\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.Assembly
 E:\Laboratoare\IP\Prj\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.CoreCompileInputs.cache
 E:\Laboratoare\IP\Prj\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.dll
 E:\Laboratoare\IP\Prj\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.pdb
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\bin\Debug\FisiereDLL.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\bin\Debug\FisiereDLL.pdb
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.AssemblyReference.cache
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.csproj.CoreCompileInputs.cache
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\FisiereDLL\obj\Debug\FisiereDLL.pdb

@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        Load.cs                                                  *
+ *  Copyright:   (c) 2022, Enache Stefan                                  *
+ *  E-mail:      stefan.enache@student.tuiasi.ro                          *
+ *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
+ *  Description: Generates file information headers.                      *
+ *                                                                        *
+ *  This program is free software; you can redistribute it and/or modify  *
+ *  it under the terms of the GNU General Public License as published by  *
+ *  the Free Software Foundation. This program is distributed in the      *
+ *  hope that it will be useful, but WITHOUT ANY WARRANTY; without even   *
+ *  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR   *
+ *  PURPOSE. See the GNU General Public License for more details.         *
+ *                                                                        *
+ **************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -46,7 +62,7 @@ namespace MpPlayer
         /// In caz de eroare la deschiderea fisierului o sa arunce eroare, pe care o tratez
         /// </summary>
         /// <param name="listBoxMusic">ListBoxul in care va  fi afisata lista de melodii</param>
-        public void LoadMusic(ListBox listBoxMusic)//asta e ok
+        public List<String> LoadMusic()//asta e ok
         {
             try
             {
@@ -59,21 +75,18 @@ namespace MpPlayer
                         foreach (String melody in _listOfMusic)
                         {
 
-                            if (melody.Equals(file))
+                            if (melody.Equals(System.IO.Path.GetFileName(file)))
                             {
                                 //MessageBox.Show("duplicate found");
                                 found = true;
                             }
                         }
                         if (!found)
-                            _listOfMusic.Add(file);
+                            _listOfMusic.Add(System.IO.Path.GetFileName(file));
+
+
                     }
-                    //listBoxMusic.Items.Clear();
-                    // MessageBox.Show(listOfMusic.ToString());
-                    foreach (String melody in _listOfMusic)
-                    {
-                        listBoxMusic.Items.Add(System.IO.Path.GetFileName(melody));
-                    }
+
                 }
             }
             catch (Exception ex)
@@ -81,7 +94,9 @@ namespace MpPlayer
                 MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
                 $"Details:\n\n{ex.StackTrace}");
             }
+            return _listOfMusic;
         }
+    
 
         /// <summary>
         /// Aceasta functie sterge melodia pe care o selectez
@@ -115,16 +130,19 @@ namespace MpPlayer
         /// </summary>
         /// <param name="listBoxMusic">Lista in care se afla melodiile si in care caut</param>
         /// <param name="textBoxSearch">TextBoxul unde introduc Stringul pentru a cauta in lista</param>
-        public void SearchMusic(ListBox listBoxMusic, TextBox textBoxSearch, List<string> songs)//aici filtreaza cum vreau eu
+        public List<string> SearchMusic(ListBox listBoxMusic, TextBox textBoxSearch, List<string> songs)//aici filtreaza cum vreau eu
         {
             listBoxMusic.Items.Clear();
+            List<string> list = new List<string>();
             foreach (String str in songs)
             {
                 if (str.ToUpper().Contains(textBoxSearch.Text.ToUpper()))
                 {
-                    listBoxMusic.Items.Add(System.IO.Path.GetFileName(str));
+                   listBoxMusic.Items.Add(System.IO.Path.GetFileName(str));
+                    list.Append(System.IO.Path.GetFileName(str));
                 }
             }
+            return list;
         }
 
         /// <summary>
@@ -133,18 +151,24 @@ namespace MpPlayer
         /// </summary>
         /// <param name="listBox">Lista in care se afla melodiile si in care adug prin DragAndDrop</param>
         /// <param name="e">Este evenimentul, DragAndDrop, care imi permite sa adaug melodiile</param>
-        public void DragAndDrop(ListBox listBox, DragEventArgs e)
+        public List<String> DragAndDrop(ListBox listBox, DragEventArgs e)
         {
-            string[] s = (string[]) e.Data.GetData(System.IO.Path.GetFileName(DataFormats.FileDrop), false);
-            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            int i;
-            for (i = 0; i < s.Length; i++)
-                listBox.Items.Add(System.IO.Path.GetFileName(s[i]));
+            string[] filePath = (string[])e.Data.GetData(System.IO.Path.GetFileName(DataFormats.FileDrop), false);
             _listOfMusic.Clear();
-            foreach (String file in filePaths)
+            foreach (String files in filePath)
             {
-                _listOfMusic.Add(file);
+                bool found = false;
+                foreach (String melody in _listOfMusic)
+                    if (melody.Equals(System.IO.Path.GetFileName(files)))
+                    {
+                        //MessageBox.Show("duplicate found");
+                        found = true;
+                    }
+                if (!found)
+                    _listOfMusic.Add(files);
+
             }
+            return _listOfMusic;
         }
 
         /// <summary>
@@ -158,5 +182,6 @@ namespace MpPlayer
             else
                 e.Effect = DragDropEffects.None;
         }
+
     }
 }
