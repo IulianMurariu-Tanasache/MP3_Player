@@ -54,6 +54,8 @@ namespace MP3_Player_Interface
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxPlaylists = new System.Windows.Forms.ListBox();
             this.contextMenuStripPlaylists = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.savePlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTime)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -250,7 +252,9 @@ namespace MP3_Player_Interface
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFromDirectoryToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.loadPlaylistsToolStripMenuItem,
+            this.savePlaylistsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(522, 27);
@@ -287,6 +291,7 @@ namespace MP3_Player_Interface
             this.listBoxPlaylists.Name = "listBoxPlaylists";
             this.listBoxPlaylists.Size = new System.Drawing.Size(157, 264);
             this.listBoxPlaylists.TabIndex = 20;
+            this.listBoxPlaylists.SelectedIndexChanged += new System.EventHandler(this.listBoxPlaylists_SelectedIndexChanged);
             // 
             // contextMenuStripPlaylists
             // 
@@ -294,6 +299,20 @@ namespace MP3_Player_Interface
             this.contextMenuStripPlaylists.Name = "contextMenuStripPlaylists";
             this.contextMenuStripPlaylists.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStripPlaylists.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripPlaylists_Opening);
+            // 
+            // savePlaylistsToolStripMenuItem
+            // 
+            this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
+            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
+            this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
+            // 
+            // loadPlaylistsToolStripMenuItem
+            // 
+            this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
+            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(101, 23);
+            this.loadPlaylistsToolStripMenuItem.Text = "LoadPlaylists";
+            this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
             // 
             // MP3_Player
             // 
@@ -357,5 +376,7 @@ namespace MP3_Player_Interface
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxPlaylists;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPlaylists;
+        private System.Windows.Forms.ToolStripMenuItem loadPlaylistsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem savePlaylistsToolStripMenuItem;
     }
 }

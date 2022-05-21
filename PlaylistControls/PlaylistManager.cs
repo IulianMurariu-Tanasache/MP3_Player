@@ -31,12 +31,35 @@ namespace PlaylistControls
     public class PlaylistManager
     {
         private List<Playlist> _playlists; //lista playlist-urilor
+        private Playlist _currentPlaylist = null;
 
         ///<value>Este lista obiectelor de tip Playlist ce reprezinta playlist-urile utilizatorului.</value>
         public List<Playlist> Playlists
         {
             get { return _playlists; }
             set { _playlists = value; }
+        }
+
+        ///<value>Este Playlist-ul selectat curent.</value>
+        public Playlist CurrentPlaylist
+        {
+            get { return _currentPlaylist; }
+        }
+
+        /// <summary>
+        /// Seteaza playlist-ul curent dupa nume.
+        /// </summary>
+        /// <param name="name">Numele playlist-ului</param>
+        public void SetCurrentPlaylist(string name)
+        {
+            if(name == null)
+                _currentPlaylist = null;
+
+            foreach (Playlist playlist in _playlists)
+            {
+                if(playlist.Name == name)
+                    _currentPlaylist = playlist;
+            }
         }
 
         /// <summary>
@@ -54,11 +77,11 @@ namespace PlaylistControls
         /// Playlist-urile create vor fi adaugate in lista.
         /// </summary>
         /// <param name="playlistsDirectory">Path-ul directorului in care se afla fisierele XML</param>
-        /// <remarks>
-        /// Fisierele XML trebuie sa aiba acelasi format ca cel descris la functia de Serializare din <c>Playlist</c>.
-        /// </remarks>
-        public PlaylistManager(String playlistsDirectory) : this()
+        public PlaylistManager(string playlistsDirectory) : this()
         {
+            if (playlistsDirectory == null || playlistsDirectory == "")
+                throw new ArgumentNullException("Bad directory!");
+
             DirectoryInfo d = new DirectoryInfo(playlistsDirectory);
             FileInfo[] Files = d.GetFiles("*.xml");
 
@@ -74,6 +97,13 @@ namespace PlaylistControls
         /// <param name="name">Numele playlist-ului.</param>
         public void AddPlaylist(string name)
         {
+            if (name == null || name == "")
+                throw new ArgumentNullException("Bad name!");
+            foreach(Playlist playlist in _playlists)
+            {
+                if (playlist.Name == name)
+                    throw new ArgumentException("Playlist already exists!");
+            }
             _playlists.Add(new Playlist(name));
         }
 
@@ -85,7 +115,6 @@ namespace PlaylistControls
         public void AddPlaylist(Playlist playlist)
         {
             if (playlist == null)
-                //exceptie custom i guess?
                 throw new ArgumentNullException("playlist null");
             _playlists.Add(playlist);
         }
@@ -94,8 +123,6 @@ namespace PlaylistControls
         /// Sterge Un playlist din lista.
         /// </summary>
         /// <param name="name">Numele playlist-ului de sters.</param>
-         
-        // Sa adauga  si aici exceptie daca nu exista??
         public void RemovePlaylist(string name)
         {
             foreach (Playlist playlist in _playlists)
@@ -103,8 +130,22 @@ namespace PlaylistControls
                 if (playlist.Name == name)
                 {
                     _playlists.Remove(playlist);
+                    if(playlist == _currentPlaylist)
+                        _currentPlaylist = null;
                     return;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Functie ce salveaza in format XML toate lpaylist-urile
+        /// </summary>
+        public void ExportPlaylists()
+        {
+            System.IO.Directory.CreateDirectory(@"./Playlists");
+            foreach (Playlist playlist in _playlists)
+            {
+                File.WriteAllText(@"./Playlists/" + playlist.Name + ".xml", playlist.ToXml());
             }
         }
     }

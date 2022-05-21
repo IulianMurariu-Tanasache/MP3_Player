@@ -53,10 +53,6 @@ namespace MpPlayer
                 if (_ofd.ShowDialog() == DialogResult.OK)
                 {
                     _listOfMusic.Clear();
-                    foreach (String file in listBoxMusic.Items)
-                    {
-                        _listOfMusic.Add(file);
-                    }
                     foreach (String file in _ofd.FileNames)
                     {
                         bool found = false;
@@ -72,7 +68,7 @@ namespace MpPlayer
                         if (!found)
                             _listOfMusic.Add(file);
                     }
-                    listBoxMusic.Items.Clear();
+                    //listBoxMusic.Items.Clear();
                     // MessageBox.Show(listOfMusic.ToString());
                     foreach (String melody in _listOfMusic)
                     {
@@ -119,10 +115,10 @@ namespace MpPlayer
         /// </summary>
         /// <param name="listBoxMusic">Lista in care se afla melodiile si in care caut</param>
         /// <param name="textBoxSearch">TextBoxul unde introduc Stringul pentru a cauta in lista</param>
-        public void SearchMusic(ListBox listBoxMusic, TextBox textBoxSearch)//aici filtreaza cum vreau eu
+        public void SearchMusic(ListBox listBoxMusic, TextBox textBoxSearch, List<string> songs)//aici filtreaza cum vreau eu
         {
             listBoxMusic.Items.Clear();
-            foreach (String str in _listOfMusic)
+            foreach (String str in songs)
             {
                 if (str.ToUpper().Contains(textBoxSearch.Text.ToUpper()))
                 {
@@ -144,6 +140,7 @@ namespace MpPlayer
             int i;
             for (i = 0; i < s.Length; i++)
                 listBox.Items.Add(System.IO.Path.GetFileName(s[i]));
+            _listOfMusic.Clear();
             foreach (String file in filePaths)
             {
                 _listOfMusic.Add(file);

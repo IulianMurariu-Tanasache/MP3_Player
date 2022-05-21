@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        UnitTestPlaylist.cs                                              *
+ *  File:        UnitTestPlaylist.cs                                      *
  *  Copyright:   (c) 2022, Murariu-Tanasache Iulian                       *
  *  E-mail:      iulian.murariu-tanasache@student.tuiasi.ro               *
  *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
@@ -48,24 +48,22 @@ namespace UnitTestPlaylistModule
         }
 
         [TestMethod]
-        public void TestXMLSerialize()
-        {
-            Playlist playlist = new Playlist();
-            Assert.IsNotNull(playlist);
-            playlist.Name = "playlistTest";
-            playlist.AddSong("muzica1");
-            playlist.AddSong("muzica2");
-            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><Playlist xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" PathList=\"muzica1 muzica2\" name=\"playlistTest\" />";
-            Assert.AreEqual(xml, playlist.ToXml());
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void TestForException()
         {
             Playlist playlist = new Playlist();
             Assert.IsNotNull(playlist);
             playlist.RemoveSong("aaaaaa");
+        }
+
+        [TestMethod]
+        public void TestGetFullPath()
+        {
+            Playlist playlist = new Playlist();
+            Assert.IsNotNull(playlist);
+            string fullPath = "C:\\folder\\folder1\\melodie.mp3";
+            playlist.AddSong(fullPath);
+            Assert.AreEqual(fullPath, playlist.GetFullPath("melodie.mp3"));
         }
     }
 }

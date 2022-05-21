@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        UnitTestPlaylistManager.cs                                              *
+ *  File:        UnitTestPlaylistManager.cs                               *
  *  Copyright:   (c) 2022, Murariu-Tanasache Iulian                       *
  *  E-mail:      iulian.murariu-tanasache@student.tuiasi.ro               *
  *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
@@ -53,6 +53,19 @@ namespace UnitTestPlaylistModule
             playlistManager.RemovePlaylist(playlist1.Name);
             Assert.AreEqual(1, playlistManager.Playlists.Count);
             Assert.IsFalse(playlistManager.Playlists.Contains(playlist1));
+        }
+
+        [TestMethod]
+        public void TestSetCurrentPlaylist()
+        {
+            PlaylistManager playlistManager = new PlaylistManager();
+            Assert.IsNotNull(playlistManager);
+            Playlist playlist1 = new Playlist("playlist1");
+            Playlist playlist2 = new Playlist("playlist2");
+            playlistManager.AddPlaylist(playlist1);
+            playlistManager.AddPlaylist(playlist2);
+            playlistManager.SetCurrentPlaylist(playlist1.Name);
+            Assert.AreEqual(playlist1, playlistManager.CurrentPlaylist);
         }
     }
 }

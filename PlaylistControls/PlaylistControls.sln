@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistControls", "PlaylistControls.csproj", "{71F5E7DD-A886-4D99-AAC8-108859CA9157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPlaylistModule", "..\UnitTestPlaylistModule\UnitTestPlaylistModule.csproj", "{EE6B46F5-BB35-497C-9F62-1F12E31AEB46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPlaylistModule", "UnitTestPlaylistModule\UnitTestPlaylistModule.csproj", "{EE6B46F5-BB35-497C-9F62-1F12E31AEB46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

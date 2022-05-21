@@ -19,6 +19,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 using MpPlayer; // a lui Stefan
 using ControlulInterfeteiNamespace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
@@ -46,6 +47,7 @@ namespace MP3_Player_Interface
             InitializeComponent();
             _loadFiles = new Load();
             _controlulInterfetei = ControlulInterfetei.Instance();
+            _playlistManager = new PlaylistManager();
         }
 
         /// <summary>
@@ -78,18 +80,21 @@ namespace MP3_Player_Interface
         /// </summary>
         private void loadFromDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _loadFiles.LoadMusic(listBoxPlaylist);
-            _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
+            try
+            {
+                _loadFiles.LoadMusic(listBoxPlaylist);
+                _playlistManager.CurrentPlaylist.AddSongs(_loadFiles.ListOfMusic.ToArray());
+                _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+            }
+            catch (System.NullReferenceException nullEx)
+            {
+                MessageBox.Show("Nici un playlist selectat!");
+            }
         }
 		
-		/// <summary>
-        /// Aceasta functie este asociata butonului "Create" din meniul Playlist si ofera posibilitatea de a crea un nou playlist
+        /// <summary>
+        /// Functie apelata cand se porneste o noua melodie pentru a reseta enviromentul
         /// </summary>
-        private void createToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void playMusic()
         {
             buttonPause.Enabled = true;
@@ -102,10 +107,9 @@ namespace MP3_Player_Interface
         /// </summary>
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            //daca melodia e pe pauza sa dea resume
             try
             {
-                string selectedMusic = _loadFiles.ListOfMusic[listBoxPlaylist.SelectedIndex];
+                string selectedMusic = _playlistManager.CurrentPlaylist.getFullPath(listBoxPlaylist.SelectedItem.ToString());
                 if (_currentMusic != selectedMusic)
                 {
                     _currentMusic = selectedMusic;
@@ -115,6 +119,10 @@ namespace MP3_Player_Interface
                 {
                     _controlulInterfetei.Play();
                 }
+            }
+            catch(ArgumentOutOfRangeException argExcp)
+            {
+                return;
             }
             catch(Exception excp)
             {
@@ -135,8 +143,15 @@ namespace MP3_Player_Interface
         /// </summary>
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            _controlulInterfetei.Next();
-            playMusic();
+            try
+            {
+                _controlulInterfetei.Next();
+                playMusic();
+            }
+            catch(NullReferenceException excp)
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -144,8 +159,15 @@ namespace MP3_Player_Interface
         /// </summary>
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            _controlulInterfetei.Previous();
-            playMusic();
+            try
+            {
+                _controlulInterfetei.Previous();
+                playMusic();
+            }
+            catch (NullReferenceException excp)
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -155,6 +177,10 @@ namespace MP3_Player_Interface
         {
             _shuffle = !_shuffle;
             _controlulInterfetei.Shuffle(_shuffle);
+            if(_shuffle)
+                buttonShuffle.BackColor = System.Drawing.Color.FromArgb(153, 180, 209);
+            else
+                buttonShuffle.BackColor = System.Drawing.Color.FromArgb(133, 150, 189);
         }
 
         /// <summary>
@@ -205,7 +231,7 @@ namespace MP3_Player_Interface
         /// </summary>
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            _loadFiles.SearchMusic(listBoxPlaylist, textBoxSearch);
+            _loadFiles.SearchMusic(listBoxPlaylist, textBoxSearch, _playlistManager.CurrentPlaylist.PathList);
         }
 
         /// <summary>
@@ -229,8 +255,6 @@ namespace MP3_Player_Interface
             itemCreate.Click += new EventHandler(itemCreatePlaylist_Click);
             ToolStripItem itemDelete = contextMenuStripPlaylists.Items.Add("Delete");
             itemDelete.Click += new EventHandler(itemDeletePlaylist_Click);
-            ToolStripItem itemUpdate = contextMenuStripPlaylists.Items.Add("Update");
-            itemUpdate.Click += new EventHandler(itemUpdatePlaylist_Click);
         }
 
 
@@ -239,21 +263,27 @@ namespace MP3_Player_Interface
         /// </summary>
         private void itemCreatePlaylist_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string playlistName = Interaction.InputBox("Name of the playlist", "New Playlist", "Playlist", 400, 450);
+            if (playlistName != "")
+            {
+                try
+                {
+                    _playlistManager.AddPlaylist(playlistName);
+                    listBoxPlaylists.Items.Add(playlistName);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
-        /// <summary>
-        /// Aceasta functie ...
-        /// </summary>
-        private void itemDeletePlaylist_Click(object sender, EventArgs e)
+            /// <summary>
+            /// Aceasta functie ...
+            /// </summary>
+            private void itemDeletePlaylist_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-        /// <summary>
-        /// Aceasta functie ...
-        /// </summary>
-        private void itemUpdatePlaylist_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            listBoxPlaylists.Items.Remove(_playlistManager.CurrentPlaylist.Name);
+            _playlistManager.RemovePlaylist(_playlistManager.CurrentPlaylist.Name);
         }
 
         /// <summary>
@@ -267,13 +297,53 @@ namespace MP3_Player_Interface
 
         private void DragAndDrop(object sender, DragEventArgs e)
         {
-            _loadFiles.DragAndDrop(listBoxPlaylist, e);
-            _controlulInterfetei.AddSongs(_loadFiles.ListOfMusic);
+            try
+            {
+                _loadFiles.DragAndDrop(listBoxPlaylist, e);
+                _playlistManager.CurrentPlaylist.AddSongs(_loadFiles.ListOfMusic.ToArray());
+                _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+            }
+            catch (System.NullReferenceException nullEx)
+            {
+                MessageBox.Show("Nici un playlist selectat!");
+            }
         }
 
         private void ListBoxEnter(object sender, DragEventArgs e)
         {
             _loadFiles.ListBoxEnter(e);
+        }
+
+        private void listBoxPlaylists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBoxPlaylist.Items.Clear();
+            if (listBoxPlaylists.SelectedIndex < 0)
+            {
+                _playlistManager.SetCurrentPlaylist(null);
+            }
+            else
+            {
+                _playlistManager.SetCurrentPlaylist(listBoxPlaylists.SelectedItem.ToString());
+                foreach (string song in _playlistManager.CurrentPlaylist.PathList)
+                {
+                    listBoxPlaylist.Items.Add(System.IO.Path.GetFileName(song));
+                }
+                _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+            }
+        }
+
+        private void loadPlaylistsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           _playlistManager = new PlaylistManager(@"./Playlists");
+            foreach(Playlist playlist in _playlistManager.Playlists)
+            {
+                listBoxPlaylists.Items.Add(playlist.Name);
+            }
+        }
+
+        private void savePlaylistsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _playlistManager.ExportPlaylists();
         }
     }
 }

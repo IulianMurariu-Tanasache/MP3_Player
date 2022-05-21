@@ -29,17 +29,24 @@ namespace PlaylistControls
     /// <summary>
     /// Clasa <c>Playlist</c> reprezinta o coletie de melodii.
     /// </summary>
-    [XmlRoot]
+    [XmlRoot(ElementName = "Playlist")]
     public class Playlist
     {
-        private List<String> _pathList; // lista de path-uri absolute? pentru fiecare melodie din playlist
+        private List<string> _pathList; // lista de path-uri absolute? pentru fiecare melodie din playlist
         private string _name; //numele playlist-ului
 
-        [XmlAttribute("PathList")]
         ///<value>Reprezinta o lista de path-uri absolute, fiecare path fiind asociat cu o melodie din playlist.</value>
-        public List<String> PathList { 
+        public List<string> PathList { 
             get { return _pathList; } 
             set { _pathList = value; }
+        }
+
+        ///<value>O proprietate special creata pentru a serializa lista de string-uri cu ',' intre melodii</value>
+        [XmlElement(ElementName = "Songs")]
+        public string SongSerializer
+        {
+            get { return String.Join(",", _pathList); }
+            set { _pathList = value.Split(',').ToList(); }
         }
 
         [XmlAttribute("name")]
@@ -60,16 +67,41 @@ namespace PlaylistControls
         /// </summary>
         public Playlist()
         {
-            _pathList = new List<String>();
+            _pathList = new List<string>();
         }
 
         /// <summary>
         /// Adauga o noua melodie in playlist.
         /// </summary>
         /// <param name="path">Path al melodiei</param>
-        public void AddSong(String path)
+        public void AddSong(string path)
         {
             _pathList.Add(path);
+        }
+
+        /// <summary>
+        /// Functie pentru a obtine path-ul complet al unei melodii
+        /// </summary>
+        /// <param name="name">Path absolut al melodiei</param>
+        /// <returns></returns>
+        public string GetFullPath(string name)
+        {
+            foreach(string song in _pathList)
+            {
+                if(song.Contains(name))
+                    return song;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Adauga mai multe melodii in playlist
+        /// </summary>
+        /// <param name="paths">Lista ed path-uri ale melodilor</param>
+        public void AddSongs(string[] paths)
+        {
+            foreach (String path in paths)
+                _pathList.Add(path);
         }
 
         /// <summary>
@@ -77,7 +109,7 @@ namespace PlaylistControls
         /// </summary>
         /// <param name="path">Numele melodiei ce trebuie scoasa din lista.</param>
         /// <exception cref="Exception">Eroare ce apare daca melodia ce trebuia stearsa nu e in playlist.</exception>
-        public void RemoveSong(String name)
+        public void RemoveSong(string name)
         {
             foreach(String songPath in _pathList)
             {
@@ -87,19 +119,13 @@ namespace PlaylistControls
                     return;
                 }
             }
-            //trebuie o eroare custom i guess
             throw new Exception("No song with this name in playlist");
         }
 
         /// <summary>
         /// Serializeaza obiectul playlist intr-un fisier XML.
         /// </summary>
-        /// <returns>Continutul fisierului XML ce va 2 tag-uri: 
-        /// <list type="bullet">
-        ///     <item>Name->Numele playlist-ului;</item>
-        ///     <item>PathList->Lista de path-uri pentru fiecare melodie;</item>
-        /// </list>
-        /// </returns>
+        /// <returns>Continutul fisierului XML serializat din playlist</returns>
         public string ToXml() 
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Playlist));
@@ -123,10 +149,7 @@ namespace PlaylistControls
         /// </summary>
         /// <param name="filepath">Path-ul fisierului XML ce trebuie deserializat.</param>
         /// <returns>Obiect Playlist cu datele specificate in XML.</returns>
-        /// <remarks>
-        /// Fisierul XML trebuie sa aiba acelasi format ca cel descris la functia de Serializare.
-        /// </remarks>
-        public static Playlist FromXml(String filepath)
+        public static Playlist FromXml(string filepath)
         {
             XmlSerializer ser = new XmlSerializer(typeof(Playlist));
 

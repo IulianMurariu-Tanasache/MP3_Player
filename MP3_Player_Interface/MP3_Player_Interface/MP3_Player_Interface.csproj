@@ -39,6 +39,7 @@
     <Reference Include="FisiereDLL">
       <HintPath>..\..\FisiereDLL\bin\Debug\FisiereDLL.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PlaylistControls">
       <HintPath>..\..\PlaylistControls\bin\Debug\PlaylistControls.dll</HintPath>
     </Reference>

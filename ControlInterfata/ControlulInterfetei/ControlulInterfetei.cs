@@ -48,6 +48,7 @@ namespace ControlulInterfeteiNamespace
         private ControlulInterfetei()
         {
             _wplayer = new WMPLib.WindowsMediaPlayer();
+            _wplayer.settings.volume = 50;
         }
         /// <summary>
         /// Functie care are rolul de constructor public.
