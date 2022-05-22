@@ -289,10 +289,10 @@ namespace MP3_Player_Interface
                 }
             }
         }
-            /// <summary>
-            /// Aceasta functie ...
-            /// </summary>
-            private void itemDeletePlaylist_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Aceasta functie ...
+        /// </summary>
+        private void itemDeletePlaylist_Click(object sender, EventArgs e)
         {
             listBoxPlaylists.Items.Remove(_playlistManager.CurrentPlaylist.Name);
             _playlistManager.RemovePlaylist(_playlistManager.CurrentPlaylist.Name);
