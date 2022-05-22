@@ -65,7 +65,7 @@ namespace ControlulInterfeteiNameSpace
         {
             get
             {
-                return (int)(_wplayer.currentMedia.duration);
+                return (int)_wplayer.currentMedia.duration;
             }
         }
         /// <summary>

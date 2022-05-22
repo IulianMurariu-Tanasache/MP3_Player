@@ -151,7 +151,7 @@ namespace MpPlayer
         /// </summary>
         /// <param name="listBox">Lista in care se afla melodiile si in care adug prin DragAndDrop</param>
         /// <param name="e">Este evenimentul, DragAndDrop, care imi permite sa adaug melodiile</param>
-        public List<String> DragAndDrop(ListBox listBox, DragEventArgs e)
+        public List<String> DragAndDrop(DragEventArgs e)
         {
             string[] filePath = (string[])e.Data.GetData(System.IO.Path.GetFileName(DataFormats.FileDrop), false);
             _listOfMusic.Clear();

@@ -57,7 +57,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FisiereDLL\FisiereDLL.csproj">
+    <ProjectReference Include="..\FisiereDLL.csproj">
       <Project>{b1d7fb1f-4f68-4c26-ae8a-8244d57a5a4f}</Project>
       <Name>FisiereDLL</Name>
     </ProjectReference>

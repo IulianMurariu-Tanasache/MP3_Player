@@ -21,7 +21,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MpPlayer; // a lui Stefan
-using ControlulInterfeteiNamespace; // a lui Mihai
+using ControlulInterfeteiNameSpace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
 using System.Collections.Generic;
 
@@ -86,8 +86,7 @@ namespace MP3_Player_Interface
             {
                 List<string> list = new List<string>();
                 list = _loadFiles.LoadMusic();
-                listBoxPlaylist.Items.Clear();
-                // MessageBox.Show(listOfMusic.ToString());
+                //listBoxPlaylist.Items.Clear();
                 foreach (String melody in list)
                 {
 
@@ -109,8 +108,12 @@ namespace MP3_Player_Interface
         private void playMusic()
         {
             buttonPause.Enabled = true;
+            //while (_controlulInterfetei.FullDuration == 0) ;
             trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+            //conversie din secunde in minute:secudne
+            labelTimeEnd.Text = _controlulInterfetei.FullDuration.ToString();
             trackBarTime.Value = 0;
+            //labelNume = _currentMusic;
         }
 
         /// <summary>
@@ -304,16 +307,24 @@ namespace MP3_Player_Interface
         void itemRemove_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Stop();
-            _loadFiles.DeleteMusic(listBoxPlaylist);
+            //_loadFiles.DeleteMusic(listBoxPlaylist);
+            string songName = listBoxPlaylist.SelectedItem.ToString();
+            _controlulInterfetei.RemoveSongs(new List<string> { _playlistManager.CurrentPlaylist.GetFullPath(songName) });
+            _playlistManager.CurrentPlaylist.RemoveSong(songName);
+            listBoxPlaylist.Items.Remove(songName);
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
         {
             try
             {
-                _loadFiles.DragAndDrop(listBoxPlaylist, e);
-                _playlistManager.CurrentPlaylist.AddSongs(_loadFiles.ListOfMusic.ToArray());
+                List<string> listaMuzica = _loadFiles.DragAndDrop(e);
+                _playlistManager.CurrentPlaylist.AddSongs(listaMuzica.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+                foreach (string song in listaMuzica)
+                {
+                    listBoxPlaylist.Items.Add(System.IO.Path.GetFileName(song));
+                }
             }
             catch (System.NullReferenceException nullEx)
             {

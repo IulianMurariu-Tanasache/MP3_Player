@@ -119,7 +119,7 @@ namespace PlaylistControls
                     return;
                 }
             }
-            throw new Exception("No song with this name in playlist");
+            //throw new Exception("No song with this name in playlist");
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FisiereDLL", "FisiereDLL.csproj", "{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLoads", "..\TestForLoads\TestForLoads.csproj", "{D868676D-27A9-4889-BBEA-D5A21641E643}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLoads", "TestForLoads\TestForLoads.csproj", "{D868676D-27A9-4889-BBEA-D5A21641E643}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

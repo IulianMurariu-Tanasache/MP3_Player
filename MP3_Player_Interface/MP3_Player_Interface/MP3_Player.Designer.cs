@@ -49,13 +49,13 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.loadPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savePlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxPlaylists = new System.Windows.Forms.ListBox();
             this.contextMenuStripPlaylists = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.savePlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTime)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -261,6 +261,20 @@ namespace MP3_Player_Interface
             this.menuStrip.TabIndex = 14;
             this.menuStrip.Text = "menuStrip1";
             // 
+            // loadPlaylistsToolStripMenuItem
+            // 
+            this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
+            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(101, 23);
+            this.loadPlaylistsToolStripMenuItem.Text = "LoadPlaylists";
+            this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
+            // 
+            // savePlaylistsToolStripMenuItem
+            // 
+            this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
+            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
+            this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
+            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
@@ -299,20 +313,6 @@ namespace MP3_Player_Interface
             this.contextMenuStripPlaylists.Name = "contextMenuStripPlaylists";
             this.contextMenuStripPlaylists.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStripPlaylists.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripPlaylists_Opening);
-            // 
-            // savePlaylistsToolStripMenuItem
-            // 
-            this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
-            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
-            this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
-            this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
-            // 
-            // loadPlaylistsToolStripMenuItem
-            // 
-            this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
-            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(101, 23);
-            this.loadPlaylistsToolStripMenuItem.Text = "LoadPlaylists";
-            this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
             // 
             // MP3_Player
             // 
