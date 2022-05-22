@@ -13,3 +13,8 @@ D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.csproj.CopyComplete
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.exe
 D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.pdb
 D:\ProiectIP\ControlInterfata\Test\bin\Debug\ControlulInterfetei.xml
+D:\ProiectIP\ControlInterfata\Test\obj\Debug\Interop.WMPLib.dll
+D:\ProiectIP\ControlInterfata\Test\obj\Debug\AxInterop.WMPLib.dll
+D:\ProiectIP\ControlInterfata\Test\obj\Debug\Test.csproj.ResolveComReference.cache
+D:\ProiectIP\ControlInterfata\Test\bin\Debug\Interop.WMPLib.dll
+D:\ProiectIP\ControlInterfata\Test\bin\Debug\AxInterop.WMPLib.dll

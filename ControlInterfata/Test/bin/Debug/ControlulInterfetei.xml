@@ -36,7 +36,7 @@
         </member>
         <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.Time">
             <summary>
-            Playlist-ul curent;
+            Proprietate care seteaza sau returneaza momentul actual din piesa
             </summary>
         </member>
         <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.FullDuration">

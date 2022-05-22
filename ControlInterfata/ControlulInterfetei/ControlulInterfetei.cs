@@ -48,7 +48,7 @@ namespace ControlulInterfeteiNameSpace
         /// </summary>
         private List<string> _list;
         /// <summary>
-        /// Playlist-ul curent;
+        /// Proprietate care seteaza sau returneaza momentul actual din piesa
         /// </summary>
         public int Time
         {
@@ -97,6 +97,8 @@ namespace ControlulInterfeteiNameSpace
             WMPLib.IWMPMedia media;
             foreach (string file in l)
             {
+                if (file == "" || file == null)
+                    throw new ArgumentException("No path given.");
                 media = _wplayer.newMedia(file);
                 _wplayer.currentPlaylist.appendItem(media);
             }
@@ -111,6 +113,8 @@ namespace ControlulInterfeteiNameSpace
             WMPLib.IWMPMedia media;
             foreach (string file in l.ToList())
             {
+                if (file == "" || file == null)
+                    throw new ArgumentException("No path given.");
                 media = _wplayer.currentPlaylist.get_Item(_list.IndexOf(file));
                 _wplayer.currentPlaylist.removeItem(media);
                 _list.Remove(file);
@@ -122,6 +126,7 @@ namespace ControlulInterfeteiNameSpace
         public void Play()
         {
             _wplayer.controls.play();
+            _wplayer.currentMedia.name = _wplayer.currentMedia.name;
             _playing = true;
             _paused = false;
         }
@@ -132,6 +137,8 @@ namespace ControlulInterfeteiNameSpace
         public void Play(string music)
         {
             int index = _list.IndexOf(music);
+            if (_list.IndexOf(music) == -1)
+                throw new ArgumentException("The song is not in the playlist.");
             WMPLib.IWMPMedia media = _wplayer.currentPlaylist.get_Item(index);
             _wplayer.controls.playItem(media);
             _playing = true;
