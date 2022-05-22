@@ -4,96 +4,179 @@
         <name>ControlulInterfetei</name>
     </assembly>
     <members>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="T:ControlulInterfeteiNamespace.ControlulInterfetei">
+=======
+        <member name="T:ControlulInterfeteiNameSpace.ControlulInterfetei">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Clasa singleton care se ocupa de controlul interfetei.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._instance">
+=======
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._instance">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Variabila pentru instanta clasei.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._wplayer">
+=======
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._wplayer">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Instanta a Windows Media Player.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._paused">
+=======
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._paused">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Variabila care este adevarata cand am apasat pauza.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._playing">
+=======
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._playing">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Variabila care este adevarata cand player-ul functioneaza.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._list">
+=======
+        <member name="F:ControlulInterfeteiNameSpace.ControlulInterfetei._list">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Lista de piese din playlist-ul curent.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="P:ControlulInterfeteiNamespace.ControlulInterfetei.Time">
+=======
+        <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.Time">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
-            Proprietate a carei valoare schimba momentul in care esti in melodie.
+            Playlist-ul curent;
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.#ctor">
+=======
+        <member name="P:ControlulInterfeteiNameSpace.ControlulInterfetei.FullDuration">
+            <summary>
+            Proprietate care returneaza lungimea melodiei.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.#ctor">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Constructor privat al clasei.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Instance">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Instance">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care are rolul de constructor public.
             </summary>
             <returns>Instanta clasei</returns>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.AddSongs(System.Collections.Generic.List{System.String})">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.AddSongs(System.Collections.Generic.List{System.String})">
             <summary>
-            Functie prin care adaugam cantecele din playlist-ul curent.
+            Functie prin care adaugam cantecele intr-un playlist nou.
             </summary>
             <param name="l"></param>
         </member>
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.RemoveSongs(System.Collections.Generic.List{System.String})">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
+            <summary>
+            Functie prin care eliminam cantece dintr-un playlist.
+            </summary>
+            <param name="l"></param>
+        </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Play">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Play">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care porneste piesa curenta.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Play(System.String)">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Play(System.String)">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care porneste piesa data prin parametru.
             </summary>
             <param name="music"></param>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Pause">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Pause">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care pune pauza la muzica.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Stop">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Stop">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care opreste melodia curenta.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Next">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Next">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care porneste melodia urmatoare din playlist.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Previous">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Previous">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care porneste melodia precedenta din playlist.
             </summary>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Volume(System.Int32)">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Volume(System.Int32)">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care seteaza volumul.
             </summary>
             <param name="v"></param>
         </member>
+<<<<<<< HEAD:MP3_Player_Interface/MP3_Player_Interface/bin/Debug/ControlulInterfetei.xml
         <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Shuffle(System.Boolean)">
+=======
+        <member name="M:ControlulInterfeteiNameSpace.ControlulInterfetei.Shuffle(System.Boolean)">
+>>>>>>> Mihai:ControlInterfata/ControlulInterfetei/bin/Debug/ControlulInterfetei.xml
             <summary>
             Functie care seteaza modul shuffle.
             </summary>
