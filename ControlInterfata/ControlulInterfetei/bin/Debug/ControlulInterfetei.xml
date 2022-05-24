@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ControlulInterfetei</name>
+    </assembly>
+    <members>
+        <member name="T:ControlulInterfeteiNamespace.ControlulInterfetei">
+            <summary>
+            Clasa singleton care se ocupa de controlul interfetei.
+            </summary>
+        </member>
+        <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._instance">
+            <summary>
+            Variabila pentru instanta clasei.
+            </summary>
+        </member>
+        <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._wplayer">
+            <summary>
+            Instanta a Windows Media Player.
+            </summary>
+        </member>
+        <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._paused">
+            <summary>
+            Variabila care este adevarata cand am apasat pauza.
+            </summary>
+        </member>
+        <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._playing">
+            <summary>
+            Variabila care este adevarata cand player-ul functioneaza.
+            </summary>
+        </member>
+        <member name="F:ControlulInterfeteiNamespace.ControlulInterfetei._list">
+            <summary>
+            Lista de piese din playlist-ul curent.
+            </summary>
+        </member>
+        <member name="P:ControlulInterfeteiNamespace.ControlulInterfetei.Time">
+            <summary>
+            Proprietate a carei valoare schimba momentul in care esti in melodie.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.#ctor">
+            <summary>
+            Constructor privat al clasei.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Instance">
+            <summary>
+            Functie care are rolul de constructor public.
+            </summary>
+            <returns>Instanta clasei</returns>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.AddSongs(System.Collections.Generic.List{System.String})">
+            <summary>
+            Functie prin care adaugam cantecele din playlist-ul curent.
+            </summary>
+            <param name="l"></param>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Play">
+            <summary>
+            Functie care porneste piesa curenta.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Play(System.String)">
+            <summary>
+            Functie care porneste piesa data prin parametru.
+            </summary>
+            <param name="music"></param>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Pause">
+            <summary>
+            Functie care pune pauza la muzica.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Stop">
+            <summary>
+            Functie care opreste melodia curenta.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Next">
+            <summary>
+            Functie care porneste melodia urmatoare din playlist.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Previous">
+            <summary>
+            Functie care porneste melodia precedenta din playlist.
+            </summary>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Volume(System.Int32)">
+            <summary>
+            Functie care seteaza volumul.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:ControlulInterfeteiNamespace.ControlulInterfetei.Shuffle(System.Boolean)">
+            <summary>
+            Functie care seteaza modul shuffle.
+            </summary>
+            <param name="state"></param>
+        </member>
+    </members>
+</doc>

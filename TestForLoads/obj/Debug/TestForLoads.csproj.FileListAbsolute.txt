@@ -1,0 +1,17 @@
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\TestForLoads.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\TestForLoads.pdb
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\FisiereDLL.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\FisiereDLL.pdb
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\obj\Debug\TestForLoads.csproj.AssemblyReference.cache
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\obj\Debug\TestForLoads.csproj.CoreCompileInputs.cache
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\obj\Debug\TestForLoads.csproj.CopyComplete
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\obj\Debug\TestForLoads.dll
+E:\Laboratoare\IP\Prj\MP#\MP3_Player\TestForLoads\obj\Debug\TestForLoads.pdb
