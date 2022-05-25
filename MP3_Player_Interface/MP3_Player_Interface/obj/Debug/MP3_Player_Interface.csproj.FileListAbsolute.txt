@@ -93,3 +93,5 @@ D:\AN_3_SEM_2\IP\___\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\De
 D:\AN_3_SEM_2\IP\___\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.exe
 D:\AN_3_SEM_2\IP\___\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.pdb
 F:\AnuIII\IP\Proiect_IP\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\PlaylistControls.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\FormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\FormHelper.pdb

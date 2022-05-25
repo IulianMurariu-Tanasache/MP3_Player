@@ -1,0 +1,6 @@
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\obj\Debug\FormHelper.csproj.AssemblyReference.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\obj\Debug\FormHelper.csproj.CoreCompileInputs.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\bin\Debug\FormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\bin\Debug\FormHelper.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\obj\Debug\FormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\obj\Debug\FormHelper.pdb

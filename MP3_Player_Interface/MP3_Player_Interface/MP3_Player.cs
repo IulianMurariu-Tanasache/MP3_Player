@@ -24,6 +24,7 @@ using MpPlayer; // a lui Stefan
 using ControlulInterfeteiNameSpace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
 using System.Collections.Generic;
+using FormHelpers;
 
 namespace MP3_Player_Interface
 {
@@ -86,29 +87,7 @@ namespace MP3_Player_Interface
         {
             try
             {
-                List<string> list = new List<string>();
-                List<string> newList = new List<string>();
-
-                list = _loadFiles.LoadMusic();
-
-                foreach (String file in list)
-                {
-                    bool found = false;
-                    foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
-                    {
-                        if (melody.Equals(file))
-                        {
-
-                            found = true;
-                        }
-
-                    }
-
-                    if (!found)
-                    {
-                        newList.Add(file);
-                    }
-                }
+                List<string> newList = FormHelper.AddWithoutDuplicates(_loadFiles.LoadMusic(), _playlistManager.CurrentPlaylist.PathList);
 
                 _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
@@ -126,7 +105,7 @@ namespace MP3_Player_Interface
         /// <summary>
         /// Functie apelata cand se porneste o noua melodie pentru a reseta enviromentul
         /// </summary>
-        private void playMusic()
+        private void PlayMusic()
         {
             buttonPause.Enabled = true;
             //trackBarTime.Maximum = _controlulInterfetei.FullDuration;
@@ -136,33 +115,14 @@ namespace MP3_Player_Interface
         }
 
         /// <summary>
-        /// Functie care transforma timpul din secunde in minute si secunde
-        /// </summary>
-        private string convertTime(int timeInSeconds)
-        {
-            string time = "";
-            if ((timeInSeconds / 60) < 10)
-            {
-                time += "0";
-            }
-            time += (timeInSeconds / 60) + ":";
-            if ((timeInSeconds % 60) < 10)
-            {
-                time += "0";
-            }
-            time += (timeInSeconds % 60);
-            return time;
-        }
-
-        /// <summary>
         /// Functia Tick asociata timerului pentru a face refresh la valorile din interfata
         /// </summary>
         private void timer_Tick(object sender, EventArgs e)
         {
             labelCurrentSong.Text = System.IO.Path.GetFileName(_currentMusic);
             trackBarTime.Maximum = _controlulInterfetei.FullDuration;
-            labelTimeCurrent.Text = convertTime(_controlulInterfetei.Time);
-            labelTimeEnd.Text = convertTime(_controlulInterfetei.FullDuration);
+            labelTimeCurrent.Text = FormHelper.ConvertTime(_controlulInterfetei.Time);
+            labelTimeEnd.Text = FormHelper.ConvertTime(_controlulInterfetei.FullDuration);
             trackBarTime.Value = _controlulInterfetei.Time;
         }
 
@@ -178,7 +138,7 @@ namespace MP3_Player_Interface
                 {
                     _currentMusic = selectedMusic;
                     _controlulInterfetei.Play(_currentMusic);
-                    playMusic();
+                    PlayMusic();
                     timer.Start();
                 }
                 else
@@ -213,7 +173,7 @@ namespace MP3_Player_Interface
             try
             {
                 _controlulInterfetei.Next();
-                playMusic();
+                PlayMusic();
             }
             catch(NullReferenceException excp)
             {
@@ -229,7 +189,7 @@ namespace MP3_Player_Interface
             try
             {
                 _controlulInterfetei.Previous();
-                playMusic();
+                PlayMusic();
             }
             catch (NullReferenceException excp)
             {
@@ -374,29 +334,7 @@ namespace MP3_Player_Interface
         {
             try
             {
-                List<string> list = new List<string>();
-                List<string> newList = new List<string>();
-
-                list = _loadFiles.DragAndDrop(e);
-
-                foreach (String file in list)
-                {
-                    bool found = false;
-                    foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
-                    {
-                        if (melody.Equals(file))
-                        {
-                          
-                            found = true;
-                        }
-
-                    }
-
-                    if(!found)
-                    {
-                        newList.Add(file);
-                    }
-                }
+                List<string> newList = FormHelper.AddWithoutDuplicates(_loadFiles.DragAndDrop(e), _playlistManager.CurrentPlaylist.PathList);
 
                 _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);

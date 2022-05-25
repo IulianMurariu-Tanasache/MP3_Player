@@ -40,6 +40,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FisiereDLL\bin\Debug\FisiereDLL.dll</HintPath>
     </Reference>
+    <Reference Include="FormHelper">
+      <HintPath>..\..\FormHelper\bin\Debug\FormHelper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PlaylistControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

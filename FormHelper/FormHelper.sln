@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormHelper", "FormHelper.csproj", "{FC8CA956-A2C7-462E-81F3-79AC952DA1CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestFormHelper", "UnitTestFormHelper\UnitTestFormHelper.csproj", "{EC707FA6-A876-4620-8905-C87696C8A5CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC8CA956-A2C7-462E-81F3-79AC952DA1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8CA956-A2C7-462E-81F3-79AC952DA1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8CA956-A2C7-462E-81F3-79AC952DA1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8CA956-A2C7-462E-81F3-79AC952DA1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC707FA6-A876-4620-8905-C87696C8A5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC707FA6-A876-4620-8905-C87696C8A5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC707FA6-A876-4620-8905-C87696C8A5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC707FA6-A876-4620-8905-C87696C8A5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A9F717D-D7DD-4571-8007-FF6FBFF0441E}
+	EndGlobalSection
+EndGlobal

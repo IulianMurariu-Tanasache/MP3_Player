@@ -1,0 +1,17 @@
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\UnitTestFormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\UnitTestFormHelper.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\FormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\FormHelper.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\obj\Debug\UnitTestFormHelper.csproj.AssemblyReference.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\obj\Debug\UnitTestFormHelper.csproj.CoreCompileInputs.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\obj\Debug\UnitTestFormHelper.csproj.CopyComplete
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\obj\Debug\UnitTestFormHelper.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\FormHelper\UnitTestFormHelper\obj\Debug\UnitTestFormHelper.pdb
