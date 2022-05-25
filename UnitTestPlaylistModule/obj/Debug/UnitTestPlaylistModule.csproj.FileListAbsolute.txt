@@ -1,7 +1,3 @@
-F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\UnitTestPlaylistModule.dll
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\UnitTestPlaylistModule.pdb
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll

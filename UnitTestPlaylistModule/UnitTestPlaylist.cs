@@ -58,14 +58,5 @@ namespace UnitTestPlaylistModule
             string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><Playlist xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" PathList=\"muzica1 muzica2\" name=\"playlistTest\" />";
             Assert.AreEqual(xml, playlist.ToXml());
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void TestForException()
-        {
-            Playlist playlist = new Playlist();
-            Assert.IsNotNull(playlist);
-            playlist.RemoveSong("aaaaaa");
-        }
     }
 }
