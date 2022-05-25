@@ -38,7 +38,7 @@ namespace MP3_Player_Interface
 
         private int _volume = 100;
         private bool _shuffle = false;
-        private string _currentMusic = "";
+        private string _currentMusic = "<<  No songs playing  >>";
 
         /// <summary>
         /// Constructor ce initializeaza fereastra grafica a MP3 Player-ului.
@@ -52,7 +52,7 @@ namespace MP3_Player_Interface
         }
 
         /// <summary>
-        /// Aceasta functie se declanșează când form-ul se încarcă.
+        /// Aceasta functie se declanșează când se încarcă form-ul.
         /// </summary>
         private void MP3_Player_Load(object sender, EventArgs e)
         {
@@ -66,6 +66,7 @@ namespace MP3_Player_Interface
             listBoxPlaylists.ContextMenuStrip = contextMenuStripPlaylists;
 
             buttonPause.Enabled = false;
+            timer.Interval = 1000; // 1 sec
         }
 
         /// <summary>
@@ -73,7 +74,8 @@ namespace MP3_Player_Interface
         /// </summary>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Mp3 Player");
+            string path = System.IO.Directory.GetCurrentDirectory();
+            System.Diagnostics.Process.Start(path + "\\MP3 Player.chm");
         }
 
         /// <summary>
@@ -106,6 +108,7 @@ namespace MP3_Player_Interface
                     {
                         newList.Add(file);
                     }
+                    listBoxPlaylist.Items.Add(melody);
                 }
                 
                 _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
@@ -116,19 +119,52 @@ namespace MP3_Player_Interface
                 MessageBox.Show("Nici un playlist selectat!");
             }
         }
-		
+
         /// <summary>
         /// Functie apelata cand se porneste o noua melodie pentru a reseta enviromentul
         /// </summary>
         private void playMusic()
         {
             buttonPause.Enabled = true;
-            trackBarTime.Maximum = _controlulInterfetei.FullDuration;
-            trackBarTime.Value = 0;
+            //trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+            //trackBarTime.Value = 0;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
         }
 
         /// <summary>
-        /// Aceasta functie 
+        /// Functie care transforma timpul din secunde in minute si secunde
+        /// </summary>
+        private string convertTime(int timeInSeconds)
+        {
+            string time = "";
+            if ((timeInSeconds / 60) < 10)
+            {
+                time += "0";
+            }
+            time += (timeInSeconds / 60) + ":";
+            if ((timeInSeconds % 60) < 10)
+            {
+                time += "0";
+            }
+            time += (timeInSeconds % 60);
+            return time;
+        }
+
+        /// <summary>
+        /// Functia Tick asociata timerului pentru a face refresh la valorile din interfata
+        /// </summary>
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            labelCurrentSong.Text = System.IO.Path.GetFileName(_currentMusic);
+            trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+            labelTimeCurrent.Text = convertTime(_controlulInterfetei.Time);
+            labelTimeEnd.Text = convertTime(_controlulInterfetei.FullDuration);
+            trackBarTime.Value = _controlulInterfetei.Time;
+        }
+
+        /// <summary>
+        /// Aceasta functie permite redarea melodiei curente din playlist.
         /// </summary>
         private void buttonPlay_Click(object sender, EventArgs e)
         {
@@ -140,23 +176,25 @@ namespace MP3_Player_Interface
                     _currentMusic = selectedMusic;
                     _controlulInterfetei.Play(_currentMusic);
                     playMusic();
-                } else
+                }
+                else
                 {
                     _controlulInterfetei.Play();
+                    timer.Start();
                 }
             }
-            catch(ArgumentOutOfRangeException argExcp)
+            catch (ArgumentOutOfRangeException argExcp)
             {
                 return;
             }
-            catch(Exception excp)
+            catch (Exception excp)
             {
                 MessageBox.Show(excp.Message);
             }
         }
 
         /// <summary>
-        /// Aceasta functie 
+        /// Aceasta functie permite punerea pe pauza a melodiei curente din playlist.
         /// </summary>
         private void buttonPause_Click(object sender, EventArgs e)
         {
@@ -236,15 +274,19 @@ namespace MP3_Player_Interface
         }
 
         /// <summary>
-        /// Aceasta functie permite oprirea melodiei curente si inceperea playlistului de la capat.
+        /// Aceasta functie permite oprirea melodiei curente.
         /// </summary>
         private void buttonStop_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Stop();
+            timer.Stop();
+            labelCurrentSong.Text = "<<  No songs playing  >>";
+            labelTimeCurrent.Text = "00:00";
+            labelTimeEnd.Text = "00:00";
         }
 
         /// <summary>
-        /// Aceasta functie ...
+        /// Aceasta functie permite schimbarea momentului curent din melodie prin intermediul trackBar-ului.
         /// </summary>
         private void trackBarTime_Scroll(object sender, EventArgs e)
         {
@@ -261,7 +303,7 @@ namespace MP3_Player_Interface
         }
 
         /// <summary>
-        /// Aceasta functie ...
+        /// Aceasta functie creeaza meniu atunci cand dam click-dreapta in lista de melodii
         /// </summary>
         private void listboxContextMenu_Opening(object sender, CancelEventArgs e)
         {
@@ -270,9 +312,9 @@ namespace MP3_Player_Interface
             ToolStripItem itemRemove = contextMenuStrip.Items.Add("Remove");
             itemRemove.Click += new EventHandler(itemRemove_Click);
         }
-		
-		 /// <summary>
-        /// Aceasta functie ...
+
+        /// <summary>
+        /// Aceasta functie creeaza meniu atunci cand dam click-dreapta in lista de playlisturi
         /// </summary>
         private void contextMenuStripPlaylists_Opening(object sender, CancelEventArgs e)
         {
@@ -285,7 +327,7 @@ namespace MP3_Player_Interface
 
 
         /// <summary>
-        /// Aceasta functie ...
+        /// Aceasta functie asociaza functionalitatea butonului Create din meniul care se deschide atunci cand dam click-dreapta in lista de playlisturi
         /// </summary>
         private void itemCreatePlaylist_Click(object sender, EventArgs e)
         {
@@ -303,23 +345,27 @@ namespace MP3_Player_Interface
                 }
             }
         }
-            /// <summary>
-            /// Aceasta functie ...
-            /// </summary>
-            private void itemDeletePlaylist_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Aceasta functie asociaza functionalitatea butonului Delete din meniul care se deschide atunci cand dam click-dreapta in lista de playlisturi
+        /// </summary>
+        private void itemDeletePlaylist_Click(object sender, EventArgs e)
         {
             listBoxPlaylists.Items.Remove(_playlistManager.CurrentPlaylist.Name);
             _playlistManager.RemovePlaylist(_playlistManager.CurrentPlaylist.Name);
         }
 
         /// <summary>
-        /// Aceasta functie ...
+        /// Aceasta functie asociaza functionalitatea butonului Remove din meniul care se deschide atunci cand dam click-dreapta in lista de melodii
         /// </summary>
         void itemRemove_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Stop();
         }
 
+        /// <summary>
+        /// Aceasta functie ajuta la adaugarea de noi melodii in playlist prin metoda Drag&Drop
+        /// </summary>
         private void DragAndDrop(object sender, DragEventArgs e)
         {
             try
@@ -357,11 +403,17 @@ namespace MP3_Player_Interface
             }
         }
 
+        /// <summary>
+        /// Aceasta functie permite ca sa se realizeze eveniment de tip Drag
+        /// </summary>
         private void ListBoxEnter(object sender, DragEventArgs e)
         {
             _loadFiles.ListBoxEnter(e);
         }
 
+        /// <summary>
+        /// Aceasta functie actualizeaza lista de melodii in functie de playlistul selectat
+        /// </summary>
         private void listBoxPlaylists_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxPlaylist.Items.Clear();
@@ -380,6 +432,9 @@ namespace MP3_Player_Interface
             }
         }
 
+        /// <summary>
+        /// Aceasta functie este asociata butonului Load Playlists in bara de meniu
+        /// </summary>
         private void loadPlaylistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
            _playlistManager = new PlaylistManager(@"./Playlists");
@@ -389,6 +444,9 @@ namespace MP3_Player_Interface
             }
         }
 
+        /// <summary>
+        /// Aceasta functie este asociata butonului Save Playlists in bara de meniu
+        /// /// </summary>
         private void savePlaylistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _playlistManager.ExportPlaylists();

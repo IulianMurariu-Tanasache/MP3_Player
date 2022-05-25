@@ -41,7 +41,7 @@ namespace MP3_Player_Interface
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
-            this.labelTimeStart = new System.Windows.Forms.Label();
+            this.labelTimeCurrent = new System.Windows.Forms.Label();
             this.labelTimeEnd = new System.Windows.Forms.Label();
             this.listBoxPlaylist = new System.Windows.Forms.ListBox();
             this.trackBarTime = new System.Windows.Forms.TrackBar();
@@ -49,13 +49,15 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFromDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.loadPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savePlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxPlaylists = new System.Windows.Forms.ListBox();
             this.contextMenuStripPlaylists = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.savePlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelCurrentSong = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTime)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -178,25 +180,26 @@ namespace MP3_Player_Interface
             this.buttonPlay.UseVisualStyleBackColor = false;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
-            // labelTimeStart
+            // labelTimeCurrent
             // 
-            this.labelTimeStart.AutoSize = true;
-            this.labelTimeStart.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTimeStart.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTimeStart.Location = new System.Drawing.Point(10, 374);
-            this.labelTimeStart.Name = "labelTimeStart";
-            this.labelTimeStart.Size = new System.Drawing.Size(71, 28);
-            this.labelTimeStart.TabIndex = 12;
-            this.labelTimeStart.Text = "00:00";
+            this.labelTimeCurrent.AutoSize = true;
+            this.labelTimeCurrent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTimeCurrent.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelTimeCurrent.Location = new System.Drawing.Point(11, 374);
+            this.labelTimeCurrent.Name = "labelTimeCurrent";
+            this.labelTimeCurrent.Size = new System.Drawing.Size(44, 19);
+            this.labelTimeCurrent.TabIndex = 12;
+            this.labelTimeCurrent.Text = "00:00";
             // 
             // labelTimeEnd
             // 
             this.labelTimeEnd.AutoSize = true;
-            this.labelTimeEnd.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTimeEnd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTimeEnd.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTimeEnd.Location = new System.Drawing.Point(454, 374);
+            this.labelTimeEnd.Location = new System.Drawing.Point(470, 374);
+            this.labelTimeEnd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelTimeEnd.Name = "labelTimeEnd";
-            this.labelTimeEnd.Size = new System.Drawing.Size(71, 28);
+            this.labelTimeEnd.Size = new System.Drawing.Size(44, 19);
             this.labelTimeEnd.TabIndex = 13;
             this.labelTimeEnd.Text = "00:00";
             // 
@@ -214,18 +217,20 @@ namespace MP3_Player_Interface
             // trackBarTime
             // 
             this.trackBarTime.LargeChange = 10;
-            this.trackBarTime.Location = new System.Drawing.Point(11, 329);
+            this.trackBarTime.Location = new System.Drawing.Point(15, 329);
             this.trackBarTime.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.trackBarTime.Maximum = 10000;
             this.trackBarTime.Name = "trackBarTime";
-            this.trackBarTime.Size = new System.Drawing.Size(498, 50);
+            this.trackBarTime.Size = new System.Drawing.Size(499, 45);
             this.trackBarTime.TabIndex = 16;
+            this.trackBarTime.TickFrequency = 10;
             this.trackBarTime.Scroll += new System.EventHandler(this.trackBarTime_Scroll);
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(90, 27);
+            this.textBoxSearch.Location = new System.Drawing.Point(105, 27);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(424, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(409, 20);
             this.textBoxSearch.TabIndex = 18;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -234,15 +239,15 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // loadFromDirectoryToolStripMenuItem
             // 
-            this.loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.loadFromDirectoryToolStripMenuItem.Name = "loadFromDirectoryToolStripMenuItem";
-            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(149, 23);
+            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
             this.loadFromDirectoryToolStripMenuItem.Text = "Load From Directory";
             this.loadFromDirectoryToolStripMenuItem.Click += new System.EventHandler(this.loadFromDirectoryToolStripMenuItem_Click);
             // 
@@ -251,15 +256,31 @@ namespace MP3_Player_Interface
             this.menuStrip.BackColor = System.Drawing.SystemColors.HotTrack;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadFromDirectoryToolStripMenuItem,
-            this.aboutToolStripMenuItem,
             this.loadPlaylistsToolStripMenuItem,
-            this.savePlaylistsToolStripMenuItem});
+            this.savePlaylistsToolStripMenuItem,
+            this.loadFromDirectoryToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(522, 27);
+            this.menuStrip.Size = new System.Drawing.Size(522, 24);
             this.menuStrip.TabIndex = 14;
             this.menuStrip.Text = "menuStrip1";
+            // 
+            // loadPlaylistsToolStripMenuItem
+            // 
+            this.loadPlaylistsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
+            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.loadPlaylistsToolStripMenuItem.Text = "Load Playlists";
+            this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
+            // 
+            // savePlaylistsToolStripMenuItem
+            // 
+            this.savePlaylistsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
+            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
+            this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
             // 
             // contextMenuStrip
             // 
@@ -267,20 +288,21 @@ namespace MP3_Player_Interface
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteSongToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 28);
+            this.contextMenuStrip.Size = new System.Drawing.Size(138, 26);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.deleteSongToolStripMenuItem.Text = "Delete Song";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(10, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(89, 15);
             this.label1.TabIndex = 19;
             this.label1.Text = "Search a song:";
             // 
@@ -300,19 +322,17 @@ namespace MP3_Player_Interface
             this.contextMenuStripPlaylists.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStripPlaylists.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripPlaylists_Opening);
             // 
-            // savePlaylistsToolStripMenuItem
+            // labelCurrentSong
             // 
-            this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
-            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
-            this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
-            this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
-            // 
-            // loadPlaylistsToolStripMenuItem
-            // 
-            this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
-            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(101, 23);
-            this.loadPlaylistsToolStripMenuItem.Text = "LoadPlaylists";
-            this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
+            this.labelCurrentSong.AutoSize = true;
+            this.labelCurrentSong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelCurrentSong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelCurrentSong.Location = new System.Drawing.Point(81, 374);
+            this.labelCurrentSong.Name = "labelCurrentSong";
+            this.labelCurrentSong.Size = new System.Drawing.Size(147, 16);
+            this.labelCurrentSong.TabIndex = 21;
+            this.labelCurrentSong.Text = "<< No songs playing >>";
+            this.labelCurrentSong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MP3_Player
             // 
@@ -320,13 +340,14 @@ namespace MP3_Player_Interface
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(522, 468);
+            this.Controls.Add(this.labelCurrentSong);
             this.Controls.Add(this.listBoxPlaylists);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.trackBarTime);
             this.Controls.Add(this.listBoxPlaylist);
             this.Controls.Add(this.labelTimeEnd);
-            this.Controls.Add(this.labelTimeStart);
+            this.Controls.Add(this.labelTimeCurrent);
             this.Controls.Add(this.buttonVolumeDown);
             this.Controls.Add(this.buttonVolumeUp);
             this.Controls.Add(this.buttonVolumeMute);
@@ -363,7 +384,7 @@ namespace MP3_Player_Interface
         private System.Windows.Forms.Button buttonVolumeMute;
         private System.Windows.Forms.Button buttonVolumeUp;
         private System.Windows.Forms.Button buttonVolumeDown;
-        private System.Windows.Forms.Label labelTimeStart;
+        private System.Windows.Forms.Label labelTimeCurrent;
         private System.Windows.Forms.Label labelTimeEnd;
         private System.Windows.Forms.ListBox listBoxPlaylist;
         private System.Windows.Forms.TrackBar trackBarTime;
@@ -378,5 +399,7 @@ namespace MP3_Player_Interface
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPlaylists;
         private System.Windows.Forms.ToolStripMenuItem loadPlaylistsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem savePlaylistsToolStripMenuItem;
+        private System.Windows.Forms.Label labelCurrentSong;
+        private System.Windows.Forms.Timer timer;
     }
 }
