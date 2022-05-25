@@ -110,6 +110,7 @@ namespace MP3_Player_Interface
             buttonPause.Enabled = true;
             //trackBarTime.Maximum = _controlulInterfetei.FullDuration;
             //trackBarTime.Value = 0;
+            _currentMusic = _playlistManager.CurrentPlaylist.GetFullPath(listBoxPlaylist.SelectedItem.ToString());
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
@@ -119,11 +120,18 @@ namespace MP3_Player_Interface
         /// </summary>
         private void timer_Tick(object sender, EventArgs e)
         {
-            labelCurrentSong.Text = System.IO.Path.GetFileName(_currentMusic);
-            trackBarTime.Maximum = _controlulInterfetei.FullDuration;
-            labelTimeCurrent.Text = FormHelper.ConvertTime(_controlulInterfetei.Time);
-            labelTimeEnd.Text = FormHelper.ConvertTime(_controlulInterfetei.FullDuration);
-            trackBarTime.Value = _controlulInterfetei.Time;
+            try
+            {
+                labelCurrentSong.Text = System.IO.Path.GetFileName(_currentMusic);
+                trackBarTime.Maximum = _controlulInterfetei.FullDuration;
+                labelTimeCurrent.Text = FormHelper.ConvertTime(_controlulInterfetei.Time);
+                labelTimeEnd.Text = FormHelper.ConvertTime(_controlulInterfetei.FullDuration);
+                trackBarTime.Value = _controlulInterfetei.Time;
+            }
+            catch(Exception excp)
+            {
+                timer.Stop();
+            }
         }
 
         /// <summary>
@@ -172,6 +180,10 @@ namespace MP3_Player_Interface
         {
             try
             {
+                if (listBoxPlaylist.SelectedIndex != _playlistManager.CurrentPlaylist.PathList.Count-1)
+                    listBoxPlaylist.SetSelected(listBoxPlaylist.SelectedIndex + 1, true);
+                else
+                    listBoxPlaylist.SetSelected(0, true);
                 _controlulInterfetei.Next();
                 PlayMusic();
             }
@@ -188,6 +200,10 @@ namespace MP3_Player_Interface
         {
             try
             {
+                if(listBoxPlaylist.SelectedIndex != 0)
+                    listBoxPlaylist.SetSelected(listBoxPlaylist.SelectedIndex - 1, true);
+                else
+                    listBoxPlaylist.SetSelected(_playlistManager.CurrentPlaylist.PathList.Count-1, true);
                 _controlulInterfetei.Previous();
                 PlayMusic();
             }
@@ -383,7 +399,8 @@ namespace MP3_Player_Interface
         /// </summary>
         private void loadPlaylistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           _playlistManager = new PlaylistManager(@"./Playlists");
+            listBoxPlaylists.Items.Clear();
+            _playlistManager = new PlaylistManager(@"./Playlists");
             foreach(Playlist playlist in _playlistManager.Playlists)
             {
                 listBoxPlaylists.Items.Add(playlist.Name);
