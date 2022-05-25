@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FisiereDLL", "FisiereDLL.csproj", "{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FisiereDLL", "FisiereDLL.csproj", "{71F5E7DD-A886-4D99-AAC8-108859CA9157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLoads", "..\TestForLoads\TestForLoads.csproj", "{D868676D-27A9-4889-BBEA-D5A21641E643}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLoads", "TestForLoads\TestForLoads.csproj", "{D868676D-27A9-4889-BBEA-D5A21641E643}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1D7FB1F-4F68-4C26-AE8A-8244D57A5A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F5E7DD-A886-4D99-AAC8-108859CA9157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F5E7DD-A886-4D99-AAC8-108859CA9157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F5E7DD-A886-4D99-AAC8-108859CA9157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F5E7DD-A886-4D99-AAC8-108859CA9157}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D868676D-27A9-4889-BBEA-D5A21641E643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D868676D-27A9-4889-BBEA-D5A21641E643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D868676D-27A9-4889-BBEA-D5A21641E643}.Release|Any CPU.ActiveCfg = Release|Any CPU
