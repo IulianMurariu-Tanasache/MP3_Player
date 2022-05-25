@@ -41,7 +41,8 @@
       <HintPath>..\..\FisiereDLL\bin\Debug\FisiereDLL.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="PlaylistControls">
+    <Reference Include="PlaylistControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\PlaylistControls\bin\Debug\PlaylistControls.dll</HintPath>
     </Reference>
     <Reference Include="System" />

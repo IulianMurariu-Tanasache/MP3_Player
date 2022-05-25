@@ -11,3 +11,14 @@ F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\obj\Debug\UnitTestPlay
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.csproj.CopyComplete
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.dll
 F:\AnuIII\IP\Proiect_IP\MP3_Player\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\UnitTestPlaylistModule.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\UnitTestPlaylistModule.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\PlaylistControls.dll
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\PlaylistControls.pdb
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.csproj.AssemblyReference.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.csproj.CoreCompileInputs.cache
+F:\AnuIII\IP\Proiect_IP\MP3_Player\PlaylistControls\UnitTestPlaylistModule\obj\Debug\UnitTestPlaylistModule.csproj.CopyComplete

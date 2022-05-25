@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        UnitTestPlaylist.cs                                      *
+ *  File:        UnitTestPlaylist.cs                                              *
  *  Copyright:   (c) 2022, Murariu-Tanasache Iulian                       *
  *  E-mail:      iulian.murariu-tanasache@student.tuiasi.ro               *
  *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
@@ -48,12 +48,27 @@ namespace UnitTestPlaylistModule
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void TestForException()
+        public void TestXMLSerialize()
         {
             Playlist playlist = new Playlist();
             Assert.IsNotNull(playlist);
-            playlist.RemoveSong("aaaaaa");
+            playlist.Name = "playlistTest";
+            playlist.AddSong("muzica1");
+            playlist.AddSong("muzica2");
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><Playlist xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" name=\"playlistTest\"><PathList><string>muzica1</string><string>muzica2</string></PathList></Playlist>";
+            Assert.AreEqual(xml, playlist.ToXml());
+        }
+
+        [TestMethod]
+        public void TestXMLDeserialize()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><Playlist xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" name=\"playlistTest\"><PathList><string>muzica1</string><string>muzica2</string></PathList></Playlist>";
+            Playlist playlist = Playlist.FromXml("F:\\AnuIII\\IP\\Proiect_IP\\MP3_Player\\PlaylistControls\\UnitTestPlaylistModule\\playlistTest.xml");
+            Assert.IsNotNull(playlist);
+            Assert.AreEqual("playlistTest", playlist.Name);
+            Assert.AreEqual(2, playlist.PathList.Count);
+            Assert.AreEqual("muzica1", playlist.PathList[0]);
+            Assert.AreEqual("muzica2", playlist.PathList[1]);
         }
 
         [TestMethod]
@@ -61,9 +76,10 @@ namespace UnitTestPlaylistModule
         {
             Playlist playlist = new Playlist();
             Assert.IsNotNull(playlist);
-            string fullPath = "C:\\folder\\folder1\\melodie.mp3";
+            playlist.Name = "playlistTest";
+            string fullPath = "F://muzica1";
             playlist.AddSong(fullPath);
-            Assert.AreEqual(fullPath, playlist.GetFullPath("melodie.mp3"));
+            Assert.AreEqual(fullPath, playlist.GetFullPath("muzica1"));
         }
     }
 }

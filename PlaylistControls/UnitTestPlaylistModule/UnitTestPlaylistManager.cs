@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        UnitTestPlaylistManager.cs                               *
+ *  File:        UnitTestPlaylistManager.cs                                              *
  *  Copyright:   (c) 2022, Murariu-Tanasache Iulian                       *
  *  E-mail:      iulian.murariu-tanasache@student.tuiasi.ro               *
  *  Website:     https://github.com/IulianMurariu-Tanasache/MP3_Player    *
