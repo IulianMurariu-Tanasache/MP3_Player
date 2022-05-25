@@ -1,6 +1,0 @@
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.AssemblyReference.cache
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\Interop.WMPLib.dll
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.ResolveComReference.cache
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.csproj.CoreCompileInputs.cache
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.dll
-F:\AnuIII\IP\Proiect_IP\MP3_Player\ControlInterfata\ControlulInterfetei\obj\Debug\ControlulInterfetei.pdb
