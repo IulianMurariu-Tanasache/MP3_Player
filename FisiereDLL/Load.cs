@@ -98,33 +98,7 @@ namespace MpPlayer
         }
     
 
-        /// <summary>
-        /// Aceasta functie sterge melodia pe care o selectez
-        /// Am de ales doua optiuni, stergerea melodiei selectate doar din lista de melodii sau stergerea de pe disk
-        /// </summary>
-        /// <param name="listBoxMusic">Lista in care se afla melodia, pe care o selectez sa o sterg</param>
-        public void DeleteMusic(ListBox listBoxMusic)
-        {
-            String path = @"E:/Music";
-            DirectoryInfo di = new DirectoryInfo(path);
-            if (MessageBox.Show("    Delete from disk?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                foreach (FileInfo file in di.GetFiles())
-                {
-                    if (file.Name.Contains(listBoxMusic.SelectedItem.ToString()))
-                    {
-                        file.Delete();
-                        MessageBox.Show("File was deleted");
-                    }
-                }
-                listBoxMusic.Items.Remove(listBoxMusic.SelectedItem);
-            }
-            else
-            {
-                listBoxMusic.Items.Remove(listBoxMusic.SelectedItem);
-            }
-        }
-
+       
         /// <summary>
         /// Aceasta functie cauta melodii in ListBox si afiseaza toate melodiile care contin string-ul primit ca parametru 
         /// </summary>

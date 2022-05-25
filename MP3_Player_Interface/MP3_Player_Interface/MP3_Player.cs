@@ -21,7 +21,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MpPlayer; // a lui Stefan
-using ControlulInterfeteiNameSpace; // a lui Mihai
+using ControlulInterfeteiNamespace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
 using System.Collections.Generic;
 
@@ -85,15 +85,30 @@ namespace MP3_Player_Interface
             try
             {
                 List<string> list = new List<string>();
+                List<string> newList = new List<string>();
+
                 list = _loadFiles.LoadMusic();
-                //listBoxPlaylist.Items.Clear();
-                foreach (String melody in list)
+
+                foreach (String file in list)
                 {
+                    bool found = false;
+                    foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
+                    {
+                        if (melody.Equals(System.IO.Path.GetFileName(file)))
+                        {
 
-                    listBoxPlaylist.Items.Add(melody);
+                            found = true;
+                        }
 
+                    }
+
+                    if (!found)
+                    {
+                        newList.Add(file);
+                    }
                 }
-                _playlistManager.CurrentPlaylist.AddSongs(_loadFiles.ListOfMusic.ToArray());
+                
+                _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
             }
             catch (System.NullReferenceException nullEx)
@@ -108,12 +123,8 @@ namespace MP3_Player_Interface
         private void playMusic()
         {
             buttonPause.Enabled = true;
-            //while (_controlulInterfetei.FullDuration == 0) ;
             trackBarTime.Maximum = _controlulInterfetei.FullDuration;
-            //conversie din secunde in minute:secudne
-            labelTimeEnd.Text = _controlulInterfetei.FullDuration.ToString();
             trackBarTime.Value = 0;
-            //labelNume = _currentMusic;
         }
 
         /// <summary>
@@ -292,10 +303,10 @@ namespace MP3_Player_Interface
                 }
             }
         }
-        /// <summary>
-        /// Aceasta functie ...
-        /// </summary>
-        private void itemDeletePlaylist_Click(object sender, EventArgs e)
+            /// <summary>
+            /// Aceasta functie ...
+            /// </summary>
+            private void itemDeletePlaylist_Click(object sender, EventArgs e)
         {
             listBoxPlaylists.Items.Remove(_playlistManager.CurrentPlaylist.Name);
             _playlistManager.RemovePlaylist(_playlistManager.CurrentPlaylist.Name);
@@ -307,24 +318,38 @@ namespace MP3_Player_Interface
         void itemRemove_Click(object sender, EventArgs e)
         {
             _controlulInterfetei.Stop();
-            //_loadFiles.DeleteMusic(listBoxPlaylist);
-            string songName = listBoxPlaylist.SelectedItem.ToString();
-            _controlulInterfetei.RemoveSongs(new List<string> { _playlistManager.CurrentPlaylist.GetFullPath(songName) });
-            _playlistManager.CurrentPlaylist.RemoveSong(songName);
-            listBoxPlaylist.Items.Remove(songName);
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
         {
             try
             {
-                List<string> listaMuzica = _loadFiles.DragAndDrop(e);
-                _playlistManager.CurrentPlaylist.AddSongs(listaMuzica.ToArray());
-                _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
-                foreach (string song in listaMuzica)
+                List<string> list = new List<string>();
+                List<string> newList = new List<string>();
+
+                list = _loadFiles.DragAndDrop(e);
+
+                foreach (String file in list)
                 {
-                    listBoxPlaylist.Items.Add(System.IO.Path.GetFileName(song));
+                    bool found = false;
+                    foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
+                    {
+                        if (melody.Equals(System.IO.Path.GetFileName(file)))
+                        {
+                          
+                            found = true;
+                        }
+
+                    }
+
+                    if(!found)
+                    {
+                        newList.Add(System.IO.Path.GetFileName(file));
+                    }
                 }
+
+                _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
+                _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
             }
             catch (System.NullReferenceException nullEx)
             {

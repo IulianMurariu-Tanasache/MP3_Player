@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BDFB183-C648-44AA-B244-762C030E173B}</ProjectGuid>
+    <ProjectGuid>{9D551254-A832-4AD3-A171-30F2991F4FE2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Test</RootNamespace>
-    <AssemblyName>Test</AssemblyName>
+    <RootNamespace>MP3_Player_Interface</RootNamespace>
+    <AssemblyName>MP3_Player_Interface</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlulInterfetei">
-      <HintPath>..\ControlulInterfetei\bin\Debug\ControlulInterfetei.dll</HintPath>
+      <HintPath>..\..\ControlInterfata\ControlulInterfetei\bin\Debug\ControlulInterfetei.dll</HintPath>
+    </Reference>
+    <Reference Include="FisiereDLL">
+      <HintPath>..\..\FisiereDLL\bin\Debug\FisiereDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PlaylistControls">
+      <HintPath>..\..\PlaylistControls\bin\Debug\PlaylistControls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,16 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MP3_Player.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MP3_Player.Designer.cs">
+      <DependentUpon>MP3_Player.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MP3_Player.resx">
+      <DependentUpon>MP3_Player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -83,23 +91,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxWMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <None Include="Properties\Icons\play_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\pause_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\next_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\previous_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\shuffle_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\stop_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\volume_mute_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\volume_down_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\volume_up_50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
