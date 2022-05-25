@@ -41,14 +41,6 @@ namespace PlaylistControls
             set { _pathList = value; }
         }
 
-        ///<value>O proprietate special creata pentru a serializa lista de string-uri cu ',' intre melodii</value>
-        [XmlElement(ElementName = "Songs")]
-        public string SongSerializer
-        {
-            get { return String.Join(",", _pathList); }
-            set { _pathList = value.Split(',').ToList(); }
-        }
-
         [XmlAttribute("name")]
         ///<value>Reprezinta numele playlist-ului</value>
         public string Name { get { return _name; } set { _name = value; } }
