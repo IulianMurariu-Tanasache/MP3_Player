@@ -21,7 +21,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using MpPlayer; // a lui Stefan
-using ControlulInterfeteiNamespace; // a lui Mihai
+using ControlulInterfeteiNameSpace; // a lui Mihai
 using PlaylistControls; // a lui Iulian
 using System.Collections.Generic;
 
@@ -96,7 +96,7 @@ namespace MP3_Player_Interface
                     bool found = false;
                     foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
                     {
-                        if (melody.Equals(System.IO.Path.GetFileName(file)))
+                        if (melody.Equals(file))
                         {
 
                             found = true;
@@ -108,11 +108,14 @@ namespace MP3_Player_Interface
                     {
                         newList.Add(file);
                     }
-                    listBoxPlaylist.Items.Add(melody);
                 }
-                
+
                 _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+                foreach (string melody in newList)
+                {
+                    listBoxPlaylist.Items.Add(System.IO.Path.GetFileName(melody));
+                }
             }
             catch (System.NullReferenceException nullEx)
             {
@@ -176,6 +179,7 @@ namespace MP3_Player_Interface
                     _currentMusic = selectedMusic;
                     _controlulInterfetei.Play(_currentMusic);
                     playMusic();
+                    timer.Start();
                 }
                 else
                 {
@@ -380,7 +384,7 @@ namespace MP3_Player_Interface
                     bool found = false;
                     foreach (String melody in _playlistManager.CurrentPlaylist.PathList)
                     {
-                        if (melody.Equals(System.IO.Path.GetFileName(file)))
+                        if (melody.Equals(file))
                         {
                           
                             found = true;
@@ -390,12 +394,16 @@ namespace MP3_Player_Interface
 
                     if(!found)
                     {
-                        newList.Add(System.IO.Path.GetFileName(file));
+                        newList.Add(file);
                     }
                 }
 
                 _playlistManager.CurrentPlaylist.AddSongs(newList.ToArray());
                 _controlulInterfetei.AddSongs(_playlistManager.CurrentPlaylist.PathList);
+                foreach (string melody in newList)
+                {
+                    listBoxPlaylist.Items.Add(System.IO.Path.GetFileName(melody));
+                }
             }
             catch (System.NullReferenceException nullEx)
             {

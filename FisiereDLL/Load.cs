@@ -71,22 +71,9 @@ namespace MpPlayer
                     _listOfMusic.Clear();
                     foreach (String file in _ofd.FileNames)
                     {
-                        bool found = false;
-                        foreach (String melody in _listOfMusic)
-                        {
-
-                            if (melody.Equals(System.IO.Path.GetFileName(file)))
-                            {
-                                //MessageBox.Show("duplicate found");
-                                found = true;
-                            }
-                        }
-                        if (!found)
-                            _listOfMusic.Add(System.IO.Path.GetFileName(file));
-
-
+                        _listOfMusic.Add(System.IO.Path.GetFullPath(file));
                     }
-
+                    return _listOfMusic;
                 }
             }
             catch (Exception ex)
@@ -94,7 +81,7 @@ namespace MpPlayer
                 MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
                 $"Details:\n\n{ex.StackTrace}");
             }
-            return _listOfMusic;
+            return new List<String>();
         }
     
 

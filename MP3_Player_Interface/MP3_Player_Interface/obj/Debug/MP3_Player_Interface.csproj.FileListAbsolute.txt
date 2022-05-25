@@ -59,7 +59,6 @@ E:\Laboratoare\IP\Prj\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\D
 E:\Laboratoare\IP\Prj\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.exe
 E:\Laboratoare\IP\Prj\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.pdb
 F:\AnuIII\IP\Proiect_IP\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\ControlulInterfetei.xml
-F:\AnuIII\IP\Proiect_IP\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\bin\Debug\PlaylistControls.pdb
 E:\Laboratoare\IP\Prj\MP#\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.csproj.AssemblyReference.cache
 E:\Laboratoare\IP\Prj\MP#\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.csproj.SuggestedBindingRedirects.cache
 E:\Laboratoare\IP\Prj\MP#\MP3_Player\MP3_Player_Interface\MP3_Player_Interface\obj\Debug\MP3_Player_Interface.MP3_Player.resources

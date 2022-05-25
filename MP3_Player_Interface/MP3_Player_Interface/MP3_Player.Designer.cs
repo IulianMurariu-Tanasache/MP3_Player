@@ -185,9 +185,9 @@ namespace MP3_Player_Interface
             this.labelTimeCurrent.AutoSize = true;
             this.labelTimeCurrent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTimeCurrent.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTimeCurrent.Location = new System.Drawing.Point(11, 374);
+            this.labelTimeCurrent.Location = new System.Drawing.Point(12, 378);
             this.labelTimeCurrent.Name = "labelTimeCurrent";
-            this.labelTimeCurrent.Size = new System.Drawing.Size(44, 19);
+            this.labelTimeCurrent.Size = new System.Drawing.Size(50, 21);
             this.labelTimeCurrent.TabIndex = 12;
             this.labelTimeCurrent.Text = "00:00";
             // 
@@ -196,10 +196,10 @@ namespace MP3_Player_Interface
             this.labelTimeEnd.AutoSize = true;
             this.labelTimeEnd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTimeEnd.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTimeEnd.Location = new System.Drawing.Point(470, 374);
+            this.labelTimeEnd.Location = new System.Drawing.Point(464, 379);
             this.labelTimeEnd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelTimeEnd.Name = "labelTimeEnd";
-            this.labelTimeEnd.Size = new System.Drawing.Size(44, 19);
+            this.labelTimeEnd.Size = new System.Drawing.Size(50, 21);
             this.labelTimeEnd.TabIndex = 13;
             this.labelTimeEnd.Text = "00:00";
             // 
@@ -217,11 +217,11 @@ namespace MP3_Player_Interface
             // trackBarTime
             // 
             this.trackBarTime.LargeChange = 10;
-            this.trackBarTime.Location = new System.Drawing.Point(15, 329);
+            this.trackBarTime.Location = new System.Drawing.Point(16, 328);
             this.trackBarTime.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.trackBarTime.Maximum = 10000;
             this.trackBarTime.Name = "trackBarTime";
-            this.trackBarTime.Size = new System.Drawing.Size(499, 45);
+            this.trackBarTime.Size = new System.Drawing.Size(499, 50);
             this.trackBarTime.TabIndex = 16;
             this.trackBarTime.TickFrequency = 10;
             this.trackBarTime.Scroll += new System.EventHandler(this.trackBarTime_Scroll);
@@ -239,7 +239,7 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem.BackColor = System.Drawing.SystemColors.HotTrack;
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -247,7 +247,7 @@ namespace MP3_Player_Interface
             // 
             this.loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.loadFromDirectoryToolStripMenuItem.Name = "loadFromDirectoryToolStripMenuItem";
-            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(149, 23);
             this.loadFromDirectoryToolStripMenuItem.Text = "Load From Directory";
             this.loadFromDirectoryToolStripMenuItem.Click += new System.EventHandler(this.loadFromDirectoryToolStripMenuItem_Click);
             // 
@@ -262,7 +262,7 @@ namespace MP3_Player_Interface
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(522, 24);
+            this.menuStrip.Size = new System.Drawing.Size(522, 27);
             this.menuStrip.TabIndex = 14;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -270,7 +270,7 @@ namespace MP3_Player_Interface
             // 
             this.loadPlaylistsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.loadPlaylistsToolStripMenuItem.Name = "loadPlaylistsToolStripMenuItem";
-            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.loadPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(105, 23);
             this.loadPlaylistsToolStripMenuItem.Text = "Load Playlists";
             this.loadPlaylistsToolStripMenuItem.Click += new System.EventHandler(this.loadPlaylistsToolStripMenuItem_Click);
             // 
@@ -278,7 +278,7 @@ namespace MP3_Player_Interface
             // 
             this.savePlaylistsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.savePlaylistsToolStripMenuItem.Name = "savePlaylistsToolStripMenuItem";
-            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.savePlaylistsToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
             this.savePlaylistsToolStripMenuItem.Text = "Save Playlists";
             this.savePlaylistsToolStripMenuItem.Click += new System.EventHandler(this.savePlaylistsToolStripMenuItem_Click);
             // 
@@ -288,12 +288,12 @@ namespace MP3_Player_Interface
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteSongToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(138, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 28);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.deleteSongToolStripMenuItem.Text = "Delete Song";
             // 
             // label1
@@ -302,7 +302,7 @@ namespace MP3_Player_Interface
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(10, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 15);
+            this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 19;
             this.label1.Text = "Search a song:";
             // 
@@ -324,12 +324,12 @@ namespace MP3_Player_Interface
             // 
             // labelCurrentSong
             // 
-            this.labelCurrentSong.AutoSize = true;
+            this.labelCurrentSong.AutoEllipsis = true;
             this.labelCurrentSong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelCurrentSong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelCurrentSong.Location = new System.Drawing.Point(81, 374);
+            this.labelCurrentSong.Location = new System.Drawing.Point(68, 379);
             this.labelCurrentSong.Name = "labelCurrentSong";
-            this.labelCurrentSong.Size = new System.Drawing.Size(147, 16);
+            this.labelCurrentSong.Size = new System.Drawing.Size(390, 20);
             this.labelCurrentSong.TabIndex = 21;
             this.labelCurrentSong.Text = "<< No songs playing >>";
             this.labelCurrentSong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

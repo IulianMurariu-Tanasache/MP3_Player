@@ -7,8 +7,8 @@
     <ProjectGuid>{71F5E7DD-A886-4D99-AAC8-108859CA9157}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlaylistControls</RootNamespace>
-    <AssemblyName>PlaylistControls</AssemblyName>
+    <RootNamespace>FisiereDLL</RootNamespace>
+    <AssemblyName>FisiereDLL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
