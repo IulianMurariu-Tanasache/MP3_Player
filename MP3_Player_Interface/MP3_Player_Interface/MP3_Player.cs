@@ -331,8 +331,9 @@ namespace MP3_Player_Interface
         /// </summary>
         private void itemDeletePlaylist_Click(object sender, EventArgs e)
         {
-            listBoxPlaylists.Items.Remove(_playlistManager.CurrentPlaylist.Name);
-            _playlistManager.RemovePlaylist(_playlistManager.CurrentPlaylist.Name);
+            string playlistName = _playlistManager.CurrentPlaylist.Name;
+            _playlistManager.RemovePlaylist(playlistName);
+            listBoxPlaylists.Items.Remove(playlistName);
         }
 
         /// <summary>
@@ -340,6 +341,10 @@ namespace MP3_Player_Interface
         /// </summary>
         void itemRemove_Click(object sender, EventArgs e)
         {
+            string songName = _playlistManager.CurrentPlaylist.GetFullPath(listBoxPlaylist.SelectedItem.ToString());
+            _playlistManager.CurrentPlaylist.RemoveSong(songName);
+            listBoxPlaylist.Items.Remove(songName);
+            _currentMusic = "<<  No songs playing  >>";
             _controlulInterfetei.Stop();
         }
 
